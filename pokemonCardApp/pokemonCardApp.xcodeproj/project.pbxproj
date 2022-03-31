@@ -18,6 +18,7 @@
 		9F831C7C27F00D2100E58719 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F831C7B27F00D2100E58719 /* Deck.swift */; };
 		9F831C7F27F00D9E00E58719 /* DeckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F831C7E27F00D9E00E58719 /* DeckListViewModel.swift */; };
 		9F831C8327F0B0EF00E58719 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F831C8227F0B0EF00E58719 /* DeckDetailView.swift */; };
+		9F831C8627F5ABFD00E58719 /* SwiftUIPHPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9F831C8527F5ABFD00E58719 /* SwiftUIPHPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 			files = (
 				9F831C7027F00AAF00E58719 /* RealmSwift in Frameworks */,
 				9F831C6E27F00AAF00E58719 /* Realm in Frameworks */,
+				9F831C8627F5ABFD00E58719 /* SwiftUIPHPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +155,7 @@
 			packageProductDependencies = (
 				9F831C6D27F00AAF00E58719 /* Realm */,
 				9F831C6F27F00AAF00E58719 /* RealmSwift */,
+				9F831C8527F5ABFD00E58719 /* SwiftUIPHPicker */,
 			);
 			productName = pokemonCardApp;
 			productReference = 9F831C5B27F007B800E58719 /* pokemonCardApp.app */;
@@ -184,6 +187,7 @@
 			mainGroup = 9F831C5227F007B800E58719;
 			packageReferences = (
 				9F831C6C27F00AAF00E58719 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				9F831C8427F5ABFA00E58719 /* XCRemoteSwiftPackageReference "SwiftUIPHPicker" */,
 			);
 			productRefGroup = 9F831C5C27F007B800E58719 /* Products */;
 			projectDirPath = "";
@@ -430,6 +434,14 @@
 				minimumVersion = 10.20.1;
 			};
 		};
+		9F831C8427F5ABFA00E58719 /* XCRemoteSwiftPackageReference "SwiftUIPHPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tyagishi/SwiftUIPHPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -442,6 +454,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9F831C6C27F00AAF00E58719 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		9F831C8527F5ABFD00E58719 /* SwiftUIPHPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F831C8427F5ABFA00E58719 /* XCRemoteSwiftPackageReference "SwiftUIPHPicker" */;
+			productName = SwiftUIPHPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

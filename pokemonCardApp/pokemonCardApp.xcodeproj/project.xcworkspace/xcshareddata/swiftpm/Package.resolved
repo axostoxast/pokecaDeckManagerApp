@@ -18,6 +18,15 @@
           "revision": "628cf20632d65d3a3e90ae8aaf52bce596d7ad8f",
           "version": "10.24.2"
         }
+      },
+      {
+        "package": "SwiftUIPHPicker",
+        "repositoryURL": "https://github.com/tyagishi/SwiftUIPHPicker",
+        "state": {
+          "branch": null,
+          "revision": "adf008fdab6fb1d398e13b3ed178188ec9d0f2e5",
+          "version": "1.0.0"
+        }
       }
     ]
   },
