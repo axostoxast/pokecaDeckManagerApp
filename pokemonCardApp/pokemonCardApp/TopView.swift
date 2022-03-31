@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct TopView: View {
+    
+    let navigationbarAppearance = UINavigationBarAppearance()
+    
+    init() {
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("basic"))]
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink("デッキ一覧", destination: DeckListView())
-                    .padding(.bottom)
-                NavigationLink("デッキ作成", destination: AddDeckView())
+                NavigationLink(destination: AddDeckView()) {
+                    Image("addNewDeck")
+                        .renderingMode(.original)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.08)
+                }
+                .padding(.bottom)
+                
+                NavigationLink(destination: DeckListView()) {
+                    Image("myCollection")
+                        .renderingMode(.original)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.08)
+                }
             }
         }
         .navigationTitle("ポケカアプリ")

@@ -12,15 +12,17 @@ class Deck: Object, Identifiable {
     @Persisted var deckName = ""
     @Persisted var deckCode = ""
     @Persisted var deckMemo = ""
+    @Persisted var deckImageData = Data()
 }
 
 extension Deck {
     // 追加
-    static func addDeck(deckName: String, deckCode: String, deckMemo: String) {
+    static func addDeck(deckName: String, deckCode: String, deckMemo: String, deckImageData: Data) {
         let deck = Deck()
         deck.deckName = deckName
         deck.deckCode = deckCode
         deck.deckMemo = deckMemo
+        deck.deckImageData = deckImageData
         
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
@@ -29,12 +31,13 @@ extension Deck {
     }
     
     // 更新
-    static func updateDeck(deck: Deck, newDeckName: String, newDeckCode: String, newDeckMemo: String) {
+    static func updateDeck(deck: Deck, newDeckName: String, newDeckCode: String, newDeckMemo: String, newDeckImageData: Data) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
             deck.deckName = newDeckName
             deck.deckCode = newDeckCode
             deck.deckMemo = newDeckMemo
+            deck.deckImageData = newDeckImageData
         }
     }
     

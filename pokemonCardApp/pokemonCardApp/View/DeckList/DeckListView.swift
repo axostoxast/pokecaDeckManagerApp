@@ -12,40 +12,43 @@ struct DeckListView: View {
     @ObservedObject var viewModel = DeckListViewModel.shared
     
     var body: some View {
-        List {
-            ForEach(viewModel.decks) { deck in
-                HStack {
-//                    Image(systemName: "circlebadge.fill")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 15, height: 15)
-//                        .foregroundColor(.blue)
-                    
+        VStack {
+            // ライン画像
+            Image("lineImage")
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
+                .padding(.bottom)
+            
+            List {
+                ForEach(viewModel.decks) { deck in
                     VStack {
-                        NavigationLink(deck.deckName, destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo))
+                        NavigationLink(deck.deckName, destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData))
                     }
-                }
-                .swipeActions(edge: .trailing) {
-                    Button {
-                        viewModel.deleteDeck(deck: deck)
-                    } label: {
-                        Image(systemName: "trash")
+                    .swipeActions(edge: .trailing) {
+                        Button {
+                            viewModel.deleteDeck(deck: deck)
+                        } label: {
+                            Image(systemName: "trash")
+                        }
+                        .tint(.red)
                     }
-                    .tint(.red)
+    //                .swipeActions(edge: .leading) {
+    //                        Button {
+    //                            viewModel.updatingDeck = deck
+    //                            viewModel.deckName = deck.deckName
+    //                            viewModel.deckCode = deck.deckCode
+    //                            viewModel.isShowAddView.toggle()
+    //                        } label: {
+    //                            Image(systemName: "pencil.circle")
+    //                        }
+    //                        .tint(.green)
+    //                }
                 }
-//                .swipeActions(edge: .leading) {
-//                        Button {
-//                            viewModel.updatingDeck = deck
-//                            viewModel.deckName = deck.deckName
-//                            viewModel.deckCode = deck.deckCode
-//                            viewModel.isShowAddView.toggle()
-//                        } label: {
-//                            Image(systemName: "pencil.circle")
-//                        }
-//                        .tint(.green)
-//                }
             }
+            .listStyle(InsetListStyle())
         }
-        .navigationTitle("デッキ一覧")
+        .navigationTitle("MY COLLECTION")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
