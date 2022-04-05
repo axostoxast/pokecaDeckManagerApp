@@ -13,40 +13,35 @@ struct DeckListView: View {
     
     var body: some View {
         VStack {
-            // ライン画像
-            Image("lineImage")
-                .renderingMode(.original)
-                .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
+            LineView()
                 .padding(.bottom)
             
-            List {
-                ForEach(viewModel.decks) { deck in
-                    VStack {
-                        NavigationLink(deck.deckName, destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData))
-                    }
-                    .swipeActions(edge: .trailing) {
-                        Button {
-                            viewModel.deleteDeck(deck: deck)
-                        } label: {
-                            Image(systemName: "trash")
+            if viewModel.decks.count > 0 {
+                List {
+                    ForEach(viewModel.decks) { deck in
+                        VStack {
+                            NavigationLink(deck.deckName, destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData))
                         }
-                        .tint(.red)
+                        .swipeActions(edge: .trailing) {
+                            Button {
+                                viewModel.deleteDeck(deck: deck)
+                            } label: {
+                                Image(systemName: "trash")
+                            }
+                            .tint(.red)
+                        }
                     }
-    //                .swipeActions(edge: .leading) {
-    //                        Button {
-    //                            viewModel.updatingDeck = deck
-    //                            viewModel.deckName = deck.deckName
-    //                            viewModel.deckCode = deck.deckCode
-    //                            viewModel.isShowAddView.toggle()
-    //                        } label: {
-    //                            Image(systemName: "pencil.circle")
-    //                        }
-    //                        .tint(.green)
-    //                }
                 }
+                .listStyle(InsetListStyle())
+                
+                Spacer()
+            } else {
+                Spacer()
+                Text("デッキが未登録です")
+                    .font(.system(size: 20))
+                    .opacity(0.5)
+                Spacer()
             }
-            .listStyle(InsetListStyle())
         }
         .navigationTitle("MY COLLECTION")
         .navigationBarTitleDisplayMode(.inline)

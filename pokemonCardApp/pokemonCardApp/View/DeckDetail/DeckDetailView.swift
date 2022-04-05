@@ -14,7 +14,7 @@ struct DeckDetailView: View {
     var memo: String
     var imageData: Data
     
-    @State private var isOverlayPresented = false
+    @State private var isPopUpPresented = false
     
     let textWidth = UIScreen.main.bounds.width * 0.8
     let copyIconWidth = UIScreen.main.bounds.width * 0.6
@@ -24,11 +24,7 @@ struct DeckDetailView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
-                // ライン画像
-                Image("lineImage")
-                    .renderingMode(.original)
-                    .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
+                LineView()
                     .padding(.bottom)
                 
                 // デッキ名
@@ -52,11 +48,11 @@ struct DeckDetailView: View {
                     .onTapGesture {
                         UIPasteboard.general.string = code
                         withAnimation(.easeIn(duration: 0.2)) {
-                            isOverlayPresented = true
+                            isPopUpPresented = true
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                             withAnimation(.easeOut(duration: 0.1)) {
-                                isOverlayPresented = false
+                                isPopUpPresented = false
                             }
                         }
                     }
@@ -78,23 +74,11 @@ struct DeckDetailView: View {
                 Spacer()
             }
             
-            if isOverlayPresented {
-                OverlayView(isPresented: $isOverlayPresented)
+            if isPopUpPresented {
+                PopUpView(isPresented: $isPopUpPresented, message: "コピーしました")
             }
         }
         .navigationTitle("MY COLLECTION")
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct OverlayView: View {
-    @Binding var isPresented: Bool
-    
-    var body: some View {
-        Text("コピーしました")
-            .frame(width: 200, height: 50)
-            .foregroundColor(.black)
-            .background(Color(red: 0.9, green: 0.9, blue: 0.9, opacity: 0.9))
-            .cornerRadius(10)
     }
 }
