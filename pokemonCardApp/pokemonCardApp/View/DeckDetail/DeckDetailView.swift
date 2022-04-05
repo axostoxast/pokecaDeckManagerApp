@@ -20,6 +20,7 @@ struct DeckDetailView: View {
     let copyIconWidth = UIScreen.main.bounds.width * 0.6
     let copyIconHeight = UIScreen.main.bounds.height * 0.035
     let imageAreaHeight = UIScreen.main.bounds.height * 0.3
+    let noImageAreaWidth = UIScreen.main.bounds.width * 0.6
     
     var body: some View {
         ZStack {
@@ -58,11 +59,18 @@ struct DeckDetailView: View {
                     }
                     .padding(.bottom)
                 
-                // デッキ画像
-                Image(uiImage: UIImage(data: imageData) ?? UIImage())
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: textWidth, height: imageAreaHeight, alignment: .center)
+                if let image = UIImage(data: imageData) {
+                    // デッキ画像
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: textWidth, height: imageAreaHeight, alignment: .center)
+                } else {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: noImageAreaWidth, height: imageAreaHeight, alignment: .center)
+                }
                 
                 // メモ
                 Text(memo)
