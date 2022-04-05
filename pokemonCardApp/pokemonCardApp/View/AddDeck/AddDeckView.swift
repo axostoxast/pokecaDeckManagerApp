@@ -12,10 +12,18 @@ import SwiftUIPHPicker
 
 struct AddDeckView: View {
     
+    enum FocusField {
+        case name
+        case code
+        case memo
+    }
+    
     @State private var image: UIImage = UIImage()
     @State private var isShowPHPicker: Bool = false
     @State private var isPickedImage: Bool = false
     @State private var isPopUpPresented: Bool = false
+    
+    @FocusState private var focusState : FocusField?
     
     let textFieldWidth = UIScreen.main.bounds.width * 0.8
     
@@ -41,6 +49,16 @@ struct AddDeckView: View {
                             .stroke(Color("basic"), lineWidth: 2)
                     )
                     .padding(.bottom)
+                    .focused($focusState, equals: .name)
+                    .toolbar{
+                          ToolbarItem(placement: .keyboard){
+                              Button(action: {
+                                  focusState = nil
+                              }, label: {
+                                  Text("閉じる")
+                              })
+                          }
+                    }
                 
                 TextField("デッキコード", text: $viewModel.deckCode)
                     .frame(width: textFieldWidth)
@@ -50,6 +68,7 @@ struct AddDeckView: View {
                             .stroke(Color("basic"), lineWidth: 2)
                     )
                     .padding(.bottom)
+                    .focused($focusState, equals: .code)
                 
                 if !isPickedImage {
                     Button(action: {
@@ -88,6 +107,7 @@ struct AddDeckView: View {
                                 .stroke(Color("basic"), lineWidth: 2)
                         )
                         .padding(.bottom)
+                        .focused($focusState, equals: .memo)
                     
                     if viewModel.deckMemo.isEmpty {
                         Text("メモ").opacity(0.25)
@@ -114,6 +134,7 @@ struct AddDeckView: View {
                 }) {
                     Text("登録")
                 }
+                Spacer()
             }
             
             if isPopUpPresented {
