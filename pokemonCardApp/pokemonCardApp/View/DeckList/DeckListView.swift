@@ -21,7 +21,11 @@ struct DeckListView: View {
                 List {
                     ForEach(viewModel.decks) { deck in
                         VStack {
-                            NavigationLink(deck.deckName, destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData))
+                            HStack {
+                                NavigationLink(destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData)) {
+                                    DeckCellView(deck: deck, isFavorite: deck.isFavorite, deckName: deck.deckName)
+                                }
+                            }
                         }
                         .swipeActions(edge: .trailing) {
                             Button {
@@ -48,5 +52,25 @@ struct DeckListView: View {
         // ヘッダー
         .navigationTitle("MY COLLECTION")
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct DeckCellView: View {
+    
+    @State var deck: Deck
+    @State var isFavorite: Bool
+    @State var deckName: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "star")
+                .foregroundColor(isFavorite ? Color("yellowLine"): Color("basic"))
+                .onTapGesture(perform: {
+                    isFavorite.toggle()
+                    Deck.updateDeck(deck: deck, newDeckName: deck.deckName, newDeckCode: deck.deckCode, newDeckMemo: deck.deckMemo, newDeckImageData: deck.deckImageData, isFavorite: !deck.isFavorite)
+                })
+            
+            Text(deckName)
+        }
     }
 }

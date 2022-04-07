@@ -13,16 +13,18 @@ class Deck: Object, Identifiable {
     @Persisted var deckCode = ""
     @Persisted var deckMemo = ""
     @Persisted var deckImageData = Data()
+    @Persisted var isFavorite = false
 }
 
 extension Deck {
     // 追加
-    static func addDeck(deckName: String, deckCode: String, deckMemo: String, deckImageData: Data) {
+    static func addDeck(deckName: String, deckCode: String, deckMemo: String, deckImageData: Data, isFavorite: Bool) {
         let deck = Deck()
         deck.deckName = deckName
         deck.deckCode = deckCode
         deck.deckMemo = deckMemo
         deck.deckImageData = deckImageData
+        deck.isFavorite = isFavorite
         
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
@@ -31,13 +33,14 @@ extension Deck {
     }
     
     // 更新
-    static func updateDeck(deck: Deck, newDeckName: String, newDeckCode: String, newDeckMemo: String, newDeckImageData: Data) {
+    static func updateDeck(deck: Deck, newDeckName: String, newDeckCode: String, newDeckMemo: String, newDeckImageData: Data, isFavorite: Bool) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
             deck.deckName = newDeckName
             deck.deckCode = newDeckCode
             deck.deckMemo = newDeckMemo
             deck.deckImageData = newDeckImageData
+            deck.isFavorite = isFavorite
         }
     }
     

@@ -15,6 +15,7 @@ class DeckListViewModel: ObservableObject {
     @Published var deckCode = ""
     @Published var deckMemo = ""
     @Published var deckImageData = Data()
+    @Published var isFavorite = false
     
     init () {
         fetchDecks()
@@ -25,21 +26,23 @@ class DeckListViewModel: ObservableObject {
     }
     
     func addDeck() {
-        Deck.addDeck(deckName: deckName, deckCode: deckCode, deckMemo: deckMemo, deckImageData: deckImageData)
+        Deck.addDeck(deckName: deckName, deckCode: deckCode, deckMemo: deckMemo, deckImageData: deckImageData, isFavorite: isFavorite)
         self.deckName = ""
         self.deckCode = ""
         self.deckMemo = ""
         self.deckImageData = Data()
+        self.isFavorite = false
         fetchDecks()
     }
     
     func updateDeck() {
-        Deck.updateDeck(deck: updatingDeck!, newDeckName: self.deckName, newDeckCode: self.deckCode, newDeckMemo: self.deckMemo, newDeckImageData: self.deckImageData)
+        Deck.updateDeck(deck: updatingDeck!, newDeckName: self.deckName, newDeckCode: self.deckCode, newDeckMemo: self.deckMemo, newDeckImageData: self.deckImageData, isFavorite: self.isFavorite)
         // 初期化
         self.deckName = ""
         self.deckCode = ""
         self.deckMemo = ""
         self.deckImageData = Data()
+        self.isFavorite = false
         updatingDeck = nil
         fetchDecks()
     }
