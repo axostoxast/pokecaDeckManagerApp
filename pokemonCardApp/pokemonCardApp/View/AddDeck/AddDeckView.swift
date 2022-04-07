@@ -23,9 +23,16 @@ struct AddDeckView: View {
     @State private var isPickedImage: Bool = false
     @State private var isPopUpPresented: Bool = false
     
+    // フォーカス管理
     @FocusState private var focusState : FocusField?
     
+    /// 入力項目のサイズ定義
     let textFieldWidth = UIScreen.main.bounds.width * 0.8
+    let memoFieldHeight = UIScreen.main.bounds.height * 0.3
+    let selectImageButtonWidth = UIScreen.main.bounds.width * 0.4
+    let selectImageButtonHeight = UIScreen.main.bounds.height * 0.04
+    let registerButtonWidth = UIScreen.main.bounds.width * 0.2
+    let registerButtonHeight = UIScreen.main.bounds.height * 0.04
     
     static var config: PHPickerConfiguration {
         var config = PHPickerConfiguration()
@@ -41,6 +48,7 @@ struct AddDeckView: View {
                 LineView()
                     .padding(.bottom)
                 
+                // デッキ名
                 TextField("デッキ名", text: $viewModel.deckName)
                     .frame(width: textFieldWidth)
                     .font(.system(size: 20))
@@ -60,6 +68,7 @@ struct AddDeckView: View {
                           }
                     }
                 
+                // デッキコード
                 TextField("デッキコード", text: $viewModel.deckCode)
                     .frame(width: textFieldWidth)
                     .font(.system(size: 20))
@@ -70,13 +79,19 @@ struct AddDeckView: View {
                     .padding(.bottom)
                     .focused($focusState, equals: .code)
                 
+                // 画像
                 if !isPickedImage {
                     Button(action: {
                         isShowPHPicker.toggle()
                     }, label: {
                         Text("デッキ画像を選択")
+                            .foregroundColor(Color("basic"))
                     })
-                    .frame(width: textFieldWidth, alignment: .leading)
+                    .frame(width: selectImageButtonWidth, height: selectImageButtonHeight, alignment: .center)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color("blueLine"), lineWidth: 2)
+                    )
                     .padding(.bottom)
                 } else {
                     ZStack(alignment: .leading) {
@@ -97,10 +112,11 @@ struct AddDeckView: View {
                     .padding(.bottom)
                 }
                 
+                // メモ
                 ZStack(alignment: .top) {
                     TextEditor(text: $viewModel.deckMemo)
                         .font(.system(size: 20))
-                        .frame(width: textFieldWidth, height: UIScreen.main.bounds.width * 0.4, alignment: .center)
+                        .frame(width: textFieldWidth, height: memoFieldHeight, alignment: .center)
                         .lineLimit(nil)
                         .overlay(
                             RoundedRectangle(cornerRadius: 1)
@@ -112,14 +128,14 @@ struct AddDeckView: View {
                     if viewModel.deckMemo.isEmpty {
                         Text("メモ").opacity(0.25)
                             .font(.system(size: 20))
-                            .frame(width: textFieldWidth, height: UIScreen.main.bounds.width * 0.4, alignment: .leading)
+                            .frame(width: textFieldWidth, height: memoFieldHeight, alignment: .leading)
                         
                         Spacer()
                     }
                 }
+                .padding(.bottom)
                 
-                Spacer()
-                
+                // 登録ボタン
                 Button(action: {
                     viewModel.addDeck()
                     // 登録成功メッセージ表示
@@ -133,14 +149,23 @@ struct AddDeckView: View {
                     }
                 }) {
                     Text("登録")
+                        .foregroundColor(Color("basic"))
                 }
+                .frame(width: registerButtonWidth, height: registerButtonHeight, alignment: .center)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color("blueLine"), lineWidth: 2)
+                )
+                
                 Spacer()
             }
             
+            // 登録成功メッセージ
             if isPopUpPresented {
                 PopUpView(isPresented: $isPopUpPresented, message: "登録しました")
             }
         }
+        // 画像選択画面
         .sheet(isPresented: $isShowPHPicker) {
             SwiftUIPHPicker(configuration: AddDeckView.config) { results in
                 for result in results {

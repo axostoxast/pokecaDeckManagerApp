@@ -17,6 +17,7 @@ struct DeckListView: View {
                 .padding(.bottom)
             
             if viewModel.decks.count > 0 {
+                // デッキが1件以上登録済みなら一覧をListで表示
                 List {
                     ForEach(viewModel.decks) { deck in
                         VStack {
@@ -36,6 +37,7 @@ struct DeckListView: View {
                 
                 Spacer()
             } else {
+                // デッキ未登録の場合
                 Spacer()
                 Text("デッキが未登録です")
                     .font(.system(size: 20))
@@ -43,6 +45,7 @@ struct DeckListView: View {
                 Spacer()
             }
         }
+        // ヘッダー
         .navigationTitle("MY COLLECTION")
         .navigationBarTitleDisplayMode(.inline)
     }

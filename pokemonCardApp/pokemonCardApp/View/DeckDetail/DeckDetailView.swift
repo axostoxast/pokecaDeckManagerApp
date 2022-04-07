@@ -16,9 +16,11 @@ struct DeckDetailView: View {
     
     @State private var isPopUpPresented = false
     
+    /// 表示項目のサイズ定義
     let textWidth = UIScreen.main.bounds.width * 0.8
-    let copyIconWidth = UIScreen.main.bounds.width * 0.6
-    let copyIconHeight = UIScreen.main.bounds.height * 0.035
+    let emptyWidth = UIScreen.main.bounds.width * 0.6
+    let copyButtonWidth = UIScreen.main.bounds.width * 0.2
+    let copyButtonHeight = UIScreen.main.bounds.height * 0.03
     let imageAreaHeight = UIScreen.main.bounds.height * 0.3
     let noImageAreaWidth = UIScreen.main.bounds.width * 0.6
     
@@ -41,23 +43,33 @@ struct DeckDetailView: View {
                 .foregroundColor(Color("basic"))
                 .frame(width: textWidth, alignment: .leading)
                 
-                // コピーアイコン
-                Image("copy")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: copyIconWidth, height: copyIconHeight, alignment: .trailing)
-                    .onTapGesture {
-                        UIPasteboard.general.string = code
-                        withAnimation(.easeIn(duration: 0.2)) {
-                            isPopUpPresented = true
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            withAnimation(.easeOut(duration: 0.1)) {
-                                isPopUpPresented = false
+                // コピーボタン
+                if !code.isEmpty {
+                    HStack {
+                        Text("")
+                            .frame(width: emptyWidth, height: copyButtonHeight, alignment: .trailing)
+                        Button {
+                            UIPasteboard.general.string = code
+                            withAnimation(.easeIn(duration: 0.2)) {
+                                isPopUpPresented = true
                             }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                withAnimation(.easeOut(duration: 0.1)) {
+                                    isPopUpPresented = false
+                                }
+                            }
+                        } label: {
+                            Text("コピー")
+                                .foregroundColor(Color("basic"))
                         }
+                        .frame(width: copyButtonWidth, height: copyButtonHeight, alignment: .center)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color("blueLine"), lineWidth: 2)
+                        )
+                        .padding(.bottom)
                     }
-                    .padding(.bottom)
+                }
                 
                 if let image = UIImage(data: imageData) {
                     // デッキ画像
@@ -66,6 +78,7 @@ struct DeckDetailView: View {
                         .scaledToFit()
                         .frame(width: textWidth, height: imageAreaHeight, alignment: .center)
                 } else {
+                    // 画像がなければデフォルト画像を表示
                     Image(systemName: "photo")
                         .resizable()
                         .scaledToFit()
@@ -86,6 +99,7 @@ struct DeckDetailView: View {
                 PopUpView(isPresented: $isPopUpPresented, message: "コピーしました")
             }
         }
+        // ヘッダー
         .navigationTitle("MY COLLECTION")
         .navigationBarTitleDisplayMode(.inline)
     }

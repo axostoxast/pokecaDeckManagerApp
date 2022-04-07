@@ -84,7 +84,6 @@
 				9F831C7D27F00D8E00E58719 /* ViewModel */,
 				9F831C7A27F00D1300E58719 /* Model */,
 				9F831C5E27F007B900E58719 /* pokemonCardAppApp.swift */,
-				9F831C7127F00B3400E58719 /* TopView.swift */,
 				9F831C6227F007C300E58719 /* Assets.xcassets */,
 				9F831C6427F007C300E58719 /* Preview Content */,
 			);
@@ -142,6 +141,7 @@
 		9F831C8127F0B07300E58719 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9F831C7127F00B3400E58719 /* TopView.swift */,
 				9F831C7427F00BCF00E58719 /* DeckList */,
 				9F831C7727F00BFB00E58719 /* AddDeck */,
 				9F831C8027F0B05D00E58719 /* DeckDetail */,
