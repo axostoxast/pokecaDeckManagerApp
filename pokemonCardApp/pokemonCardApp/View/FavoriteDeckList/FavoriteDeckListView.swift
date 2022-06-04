@@ -1,13 +1,13 @@
 //
-//  DeckListView.swift
+//  FavoriteDeckListView.swift
 //  pokemonCardApp
 //
-//  Created by 鈴木綜太 on 2022/03/27.
+//  Created by 鈴木綜太 on 2022/06/04.
 //
 
 import SwiftUI
 
-struct DeckListView: View {
+struct FavoriteDeckListView: View {
     
     @ObservedObject var viewModel = DeckListViewModel.shared
     
@@ -16,10 +16,10 @@ struct DeckListView: View {
             LineView()
                 .padding(.bottom)
             
-            if viewModel.decks.count > 0 {
+            if viewModel.favoriteDecks.count > 0 {
                 // デッキが1件以上登録済みなら一覧をListで表示
                 List {
-                    ForEach(viewModel.decks) { deck in
+                    ForEach(viewModel.favoriteDecks) { deck in
                         VStack {
                             HStack {
                                 NavigationLink(destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData)) {
@@ -50,30 +50,24 @@ struct DeckListView: View {
             }
         }
         // ヘッダー
-        .navigationTitle("MY COLLECTION")
+        .navigationTitle("Favorite")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct DeckCellView: View {
+struct FavoriteDeckCellView: View {
     
     @State var deck: Deck
     @State var isFavorite: Bool
     @State var deckName: String
-    @StateObject var viewModel: DeckListViewModel
     
     var body: some View {
         HStack {
             Image(systemName: "star")
                 .foregroundColor(isFavorite ? Color("yellowLine"): Color("basic"))
                 .onTapGesture(perform: {
-                    viewModel.updatingDeck = deck
-                    viewModel.deckName = deck.deckName
-                    viewModel.deckCode = deck.deckCode
-                    viewModel.deckImageData = deck.deckImageData
-                    viewModel.deckMemo = deck.deckMemo
-                    viewModel.isFavorite = !deck.isFavorite
-                    viewModel.updateDeck()
+                    isFavorite.toggle()
+                    Deck.updateDeck(deck: deck, newDeckName: deck.deckName, newDeckCode: deck.deckCode, newDeckMemo: deck.deckMemo, newDeckImageData: deck.deckImageData, isFavorite: !deck.isFavorite)
                 })
             
             Text(deckName)

@@ -11,6 +11,7 @@ class DeckListViewModel: ObservableObject {
     @Published var isShowAddView = false
     @Published var updatingDeck: Deck? = nil
     @Published var decks: [Deck] = []
+    @Published var favoriteDecks: [Deck] = []
     @Published var deckName = ""
     @Published var deckCode = ""
     @Published var deckMemo = ""
@@ -23,6 +24,7 @@ class DeckListViewModel: ObservableObject {
     
     func fetchDecks() {
         self.decks = Deck.fetchAllDeck()!
+        self.favoriteDecks = Deck.fetchFavoriteDeck()!
     }
     
     func addDeck() {

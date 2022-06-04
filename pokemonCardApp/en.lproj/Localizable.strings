@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  pokemonCardApp
+
+  Created by 鈴木綜太 on 2022/06/04.
+  
+*/
+
+"Add" = "ADD NEW DECK";
+"List" = "DECK LIST";
+"Favorite" = "FAVORITE DECK LIST";

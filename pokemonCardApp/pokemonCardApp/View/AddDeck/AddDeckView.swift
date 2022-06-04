@@ -28,7 +28,7 @@ struct AddDeckView: View {
     
     /// 入力項目のサイズ定義
     let textFieldWidth = UIScreen.main.bounds.width * 0.8
-    let memoFieldHeight = UIScreen.main.bounds.height * 0.3
+    let memoFieldHeight = UIScreen.main.bounds.height * 0.25
     let selectImageButtonWidth = UIScreen.main.bounds.width * 0.4
     let selectImageButtonHeight = UIScreen.main.bounds.height * 0.04
     let registerButtonWidth = UIScreen.main.bounds.width * 0.2
@@ -56,7 +56,7 @@ struct AddDeckView: View {
                         RoundedRectangle(cornerRadius: 1)
                             .stroke(Color("basic"), lineWidth: 2)
                     )
-                    .padding(.bottom)
+                    .padding(.vertical)
                     .focused($focusState, equals: .name)
                     .toolbar{
                           ToolbarItem(placement: .keyboard){
@@ -165,6 +165,7 @@ struct AddDeckView: View {
                 PopUpView(isPresented: $isPopUpPresented, message: "登録しました")
             }
         }
+        .ignoresSafeArea(.keyboard)
         // 画像選択画面
         .sheet(isPresented: $isShowPHPicker) {
             SwiftUIPHPicker(configuration: AddDeckView.config) { results in
@@ -187,7 +188,7 @@ struct AddDeckView: View {
                 }
             }
         }
-        .navigationTitle("ADD NEW DECK")
+        .navigationTitle("Add")
         .navigationBarTitleDisplayMode(.inline)
         
     }

@@ -51,6 +51,13 @@ extension Deck {
         return Array(decks)
     }
     
+    // お気に入り取得
+    static func fetchFavoriteDeck() -> [Deck]? {
+        guard let localRealm = try? Realm() else { return nil }
+        let decks = localRealm.objects(Deck.self).filter("isFavorite == true")
+        return Array(decks)
+    }
+    
     // 削除
     static func deleteDeck(deck: Deck) {
         guard let localRealm = try? Realm() else { return }
