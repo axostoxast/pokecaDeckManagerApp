@@ -100,7 +100,7 @@ struct DeckDetailView: View {
             }
         }
         // ヘッダー
-        .navigationTitle("MY COLLECTION")
+        .navigationTitle(name)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

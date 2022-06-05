@@ -50,7 +50,7 @@ struct DeckListView: View {
             }
         }
         // ヘッダー
-        .navigationTitle("MY COLLECTION")
+        .navigationTitle("List")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
