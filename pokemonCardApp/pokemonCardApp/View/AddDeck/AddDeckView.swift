@@ -190,6 +190,5 @@ struct AddDeckView: View {
         }
         .navigationTitle("Add")
         .navigationBarTitleDisplayMode(.inline)
-        
     }
 }

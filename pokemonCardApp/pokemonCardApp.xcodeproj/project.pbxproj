@@ -24,6 +24,7 @@
 		9F831C8327F0B0EF00E58719 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F831C8227F0B0EF00E58719 /* DeckDetailView.swift */; };
 		9F831C8627F5ABFD00E58719 /* SwiftUIPHPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9F831C8527F5ABFD00E58719 /* SwiftUIPHPicker */; };
 		DA480092284DE4F800C68C59 /* BattleRecordsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */; };
+		DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480093284DE7E800C68C59 /* BattleRecords.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		9F831C7E27F00D9E00E58719 /* DeckListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListViewModel.swift; sourceTree = "<group>"; };
 		9F831C8227F0B0EF00E58719 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
 		DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordsMenuView.swift; sourceTree = "<group>"; };
+		DA480093284DE7E800C68C59 /* BattleRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecords.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				9F831C7B27F00D2100E58719 /* Deck.swift */,
+				DA480093284DE7E800C68C59 /* BattleRecords.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				9F5F383327FC883600830C0A /* PopUpView.swift in Sources */,
 				9F831C7227F00B3400E58719 /* TopView.swift in Sources */,
 				9F5F383127FC841F00830C0A /* LineView.swift in Sources */,
+				DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */,
 				9F831C5F27F007B900E58719 /* pokemonCardApp.swift in Sources */,
 				9F831C7627F00BE300E58719 /* DeckListView.swift in Sources */,
 				9F831C8327F0B0EF00E58719 /* DeckDetailView.swift in Sources */,
