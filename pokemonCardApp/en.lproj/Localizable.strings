@@ -9,6 +9,7 @@
 "Add" = "ADD NEW DECK";
 "List" = "DECK LIST";
 "Favorite" = "FAVORITE DECK LIST";
+"Records" = "BATTLE RECORDS";
 "NoDecks" = "No decks.";
 "DeckName" = "Deck Name";
 "DeckCode" = "Deck Code";
