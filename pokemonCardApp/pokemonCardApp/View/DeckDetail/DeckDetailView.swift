@@ -59,7 +59,7 @@ struct DeckDetailView: View {
                                 }
                             }
                         } label: {
-                            Text("コピー")
+                            Text("Copy")
                                 .foregroundColor(Color("basic"))
                         }
                         .frame(width: copyButtonWidth, height: copyButtonHeight, alignment: .center)
@@ -96,7 +96,7 @@ struct DeckDetailView: View {
             }
             
             if isPopUpPresented {
-                PopUpView(isPresented: $isPopUpPresented, message: "コピーしました")
+                PopUpView(isPresented: $isPopUpPresented, message: "Copied")
             }
         }
         // ヘッダー

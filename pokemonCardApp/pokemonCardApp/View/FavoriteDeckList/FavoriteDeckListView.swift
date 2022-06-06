@@ -43,7 +43,7 @@ struct FavoriteDeckListView: View {
             } else {
                 // デッキ未登録の場合
                 Spacer()
-                Text("デッキが未登録です")
+                Text("NoDecks")
                     .font(.system(size: 20))
                     .opacity(0.5)
                 Spacer()

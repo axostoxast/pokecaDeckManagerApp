@@ -49,7 +49,7 @@ struct AddDeckView: View {
                     .padding(.bottom)
                 
                 // デッキ名
-                TextField("デッキ名", text: $viewModel.deckName)
+                TextField("DeckName", text: $viewModel.deckName)
                     .frame(width: textFieldWidth)
                     .font(.system(size: 20))
                     .overlay(
@@ -63,13 +63,13 @@ struct AddDeckView: View {
                               Button(action: {
                                   focusState = nil
                               }, label: {
-                                  Text("閉じる")
+                                  Text("Close")
                               })
                           }
                     }
                 
                 // デッキコード
-                TextField("デッキコード", text: $viewModel.deckCode)
+                TextField("DeckCode", text: $viewModel.deckCode)
                     .frame(width: textFieldWidth)
                     .font(.system(size: 20))
                     .overlay(
@@ -84,7 +84,7 @@ struct AddDeckView: View {
                     Button(action: {
                         isShowPHPicker.toggle()
                     }, label: {
-                        Text("デッキ画像を選択")
+                        Text("SelectImage")
                             .foregroundColor(Color("basic"))
                     })
                     .frame(width: selectImageButtonWidth, height: selectImageButtonHeight, alignment: .center)
@@ -95,7 +95,7 @@ struct AddDeckView: View {
                     .padding(.bottom)
                 } else {
                     ZStack(alignment: .leading) {
-                        Text("選択済み")
+                        Text("Selected")
                             .frame(width: textFieldWidth, alignment: .leading)
                         
                         Button(action: {
@@ -126,7 +126,7 @@ struct AddDeckView: View {
                         .focused($focusState, equals: .memo)
                     
                     if viewModel.deckMemo.isEmpty {
-                        Text("メモ").opacity(0.25)
+                        Text("Memo").opacity(0.25)
                             .font(.system(size: 20))
                             .frame(width: textFieldWidth, height: memoFieldHeight, alignment: .leading)
                         
@@ -148,7 +148,7 @@ struct AddDeckView: View {
                         }
                     }
                 }) {
-                    Text("登録")
+                    Text("Register")
                         .foregroundColor(Color("basic"))
                 }
                 .frame(width: registerButtonWidth, height: registerButtonHeight, alignment: .center)
@@ -162,7 +162,7 @@ struct AddDeckView: View {
             
             // 登録成功メッセージ
             if isPopUpPresented {
-                PopUpView(isPresented: $isPopUpPresented, message: "登録しました")
+                PopUpView(isPresented: $isPopUpPresented, message: "Registered")
             }
         }
         .ignoresSafeArea(.keyboard)

@@ -9,3 +9,14 @@
 "Add" = "デッキ登録";
 "List" = "デッキリスト";
 "Favorite" = "お気に入りデッキ";
+"NoDecks" = "デッキが未登録です";
+"DeckName" = "デッキ名";
+"DeckCode" = "デッキコード";
+"SelectImage" = "デッキ画像を選択";
+"Selected" = "選択済み";
+"Memo" = "メモ";
+"Close" = "閉じる";
+"Register" = "登録";
+"Registered" = "登録しました";
+"Copy" = "コピー";
+"Copied" = "コピーしました";

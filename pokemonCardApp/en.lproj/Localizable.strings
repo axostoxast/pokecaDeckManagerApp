@@ -9,3 +9,14 @@
 "Add" = "ADD NEW DECK";
 "List" = "DECK LIST";
 "Favorite" = "FAVORITE DECK LIST";
+"NoDecks" = "No decks.";
+"DeckName" = "Deck Name";
+"DeckCode" = "Deck Code";
+"SelectImage" = "Select deck image";
+"Selected" = "Selected";
+"Memo" = "Memo";
+"Close" = "Close";
+"Register" = "Register";
+"Registered" = "Registered";
+"Copy" = "Copy";
+"Copied" = "Copied";
