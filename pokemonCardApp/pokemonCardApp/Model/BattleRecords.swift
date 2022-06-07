@@ -9,18 +9,18 @@ import Foundation
 import RealmSwift
 
 class BattleRecord: Object, Identifiable {
-    @Persisted var winnerDeckName = ""
-    @Persisted var loserDeckName = ""
+    @Persisted var useDeckName = ""
+    @Persisted var opponentDeckName = ""
     @Persisted var winnerGotPoints = ""
     @Persisted var loserGotPoints = ""
 }
 
 extension BattleRecord {
     // 追加
-    static func addRecord(winnerDeckName: String, loserDeckName: String, winnerGotPoints: String, loserGotPoints: String) {
+    static func addRecord(useDeckName: String, opponentDeckName: String, winnerGotPoints: String, loserGotPoints: String) {
         let record = BattleRecord()
-        record.winnerDeckName = winnerDeckName
-        record.loserDeckName = loserDeckName
+        record.useDeckName = useDeckName
+        record.opponentDeckName = opponentDeckName
         record.winnerGotPoints = winnerGotPoints
         record.loserGotPoints = loserGotPoints
         
@@ -31,11 +31,11 @@ extension BattleRecord {
     }
     
     // 更新
-    static func updateRecord(record: BattleRecord, winnerDeckName: String, loserDeckName: String, winnerGotPoints: String, loserGotPoints: String) {
+    static func updateRecord(record: BattleRecord, useDeckName: String, opponentDeckName: String, winnerGotPoints: String, loserGotPoints: String) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
-            record.winnerDeckName = winnerDeckName
-            record.loserDeckName = loserDeckName
+            record.useDeckName = useDeckName
+            record.opponentDeckName = opponentDeckName
             record.winnerGotPoints = winnerGotPoints
             record.loserGotPoints = loserGotPoints
         }
