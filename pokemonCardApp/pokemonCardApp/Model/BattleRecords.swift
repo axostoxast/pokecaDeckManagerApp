@@ -9,20 +9,26 @@ import Foundation
 import RealmSwift
 
 class BattleRecord: Object, Identifiable {
-    @Persisted var useDeckName = ""
+    @Persisted var isWon = false
+    @Persisted var isFirst = false
+    @Persisted var myDeckName = ""
     @Persisted var opponentDeckName = ""
-    @Persisted var winnerGotPoints = ""
-    @Persisted var loserGotPoints = ""
+    @Persisted var myScore = ""
+    @Persisted var opponentScore = ""
+    @Persisted var memo = ""
 }
 
 extension BattleRecord {
     // 追加
-    static func addRecord(useDeckName: String, opponentDeckName: String, winnerGotPoints: String, loserGotPoints: String) {
+    static func addRecord(isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String) {
         let record = BattleRecord()
-        record.useDeckName = useDeckName
+        record.isWon = isWon
+        record.isFirst = isFirst
+        record.myDeckName = myDeckName
         record.opponentDeckName = opponentDeckName
-        record.winnerGotPoints = winnerGotPoints
-        record.loserGotPoints = loserGotPoints
+        record.myScore = myScore
+        record.opponentScore = opponentScore
+        record.memo = memo
         
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
@@ -31,13 +37,16 @@ extension BattleRecord {
     }
     
     // 更新
-    static func updateRecord(record: BattleRecord, useDeckName: String, opponentDeckName: String, winnerGotPoints: String, loserGotPoints: String) {
+    static func updateRecord(record: BattleRecord, isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
-            record.useDeckName = useDeckName
+            record.isWon = isWon
+            record.isFirst = isFirst
+            record.myDeckName = myDeckName
             record.opponentDeckName = opponentDeckName
-            record.winnerGotPoints = winnerGotPoints
-            record.loserGotPoints = loserGotPoints
+            record.myScore = myScore
+            record.opponentScore = opponentScore
+            record.memo = memo
         }
     }
     
