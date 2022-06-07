@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "RealmDatabase",
-        "repositoryURL": "https://github.com/realm/realm-core",
-        "state": {
-          "branch": null,
-          "revision": "dcd3788f75bafb0cc397d145e1651aab3ad4bf0e",
-          "version": "11.12.0"
-        }
-      },
-      {
-        "package": "Realm",
-        "repositoryURL": "https://github.com/realm/realm-swift.git",
-        "state": {
-          "branch": null,
-          "revision": "628cf20632d65d3a3e90ae8aaf52bce596d7ad8f",
-          "version": "10.24.2"
-        }
-      },
-      {
-        "package": "SwiftUIPHPicker",
-        "repositoryURL": "https://github.com/tyagishi/SwiftUIPHPicker",
-        "state": {
-          "branch": null,
-          "revision": "adf008fdab6fb1d398e13b3ed178188ec9d0f2e5",
-          "version": "1.0.0"
-        }
+  "pins" : [
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core",
+      "state" : {
+        "revision" : "dcd3788f75bafb0cc397d145e1651aab3ad4bf0e",
+        "version" : "11.12.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift.git",
+      "state" : {
+        "revision" : "628cf20632d65d3a3e90ae8aaf52bce596d7ad8f",
+        "version" : "10.24.2"
+      }
+    },
+    {
+      "identity" : "swiftuiphpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tyagishi/SwiftUIPHPicker",
+      "state" : {
+        "revision" : "adf008fdab6fb1d398e13b3ed178188ec9d0f2e5",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
 }

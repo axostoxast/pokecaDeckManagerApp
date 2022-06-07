@@ -22,7 +22,7 @@ struct BattleRecordsMenuView: View {
     
     var body: some View {
         ZStack{
-            NavigationLink(destination:AddDeckView(), isActive: $isShowRegisterRecord) {
+            NavigationLink(destination:RegisterRecordView(), isActive: $isShowRegisterRecord) {
                 EmptyView()
             }
             
