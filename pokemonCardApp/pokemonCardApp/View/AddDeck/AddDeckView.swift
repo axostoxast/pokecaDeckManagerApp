@@ -34,6 +34,9 @@ struct AddDeckView: View {
     let registerButtonWidth = UIScreen.main.bounds.width * 0.2
     let registerButtonHeight = UIScreen.main.bounds.height * 0.04
     
+    // Localizationから多言語取得
+    private let registered: String = NSLocalizedString("Registered", comment: "Registered")
+    
     static var config: PHPickerConfiguration {
         var config = PHPickerConfiguration()
         config.filter = .images
@@ -162,7 +165,7 @@ struct AddDeckView: View {
             
             // 登録成功メッセージ
             if isPopUpPresented {
-                PopUpView(isPresented: $isPopUpPresented, message: "Registered")
+                PopUpView(isPresented: $isPopUpPresented, message: registered)
             }
         }
         .ignoresSafeArea(.keyboard)

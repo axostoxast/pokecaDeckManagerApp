@@ -16,11 +16,12 @@ class BattleRecord: Object, Identifiable {
     @Persisted var myScore = ""
     @Persisted var opponentScore = ""
     @Persisted var memo = ""
+    @Persisted var date = ""
 }
 
 extension BattleRecord {
     // 追加
-    static func addRecord(isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String) {
+    static func addRecord(isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String, date: String) {
         let record = BattleRecord()
         record.isWon = isWon
         record.isFirst = isFirst
@@ -29,6 +30,7 @@ extension BattleRecord {
         record.myScore = myScore
         record.opponentScore = opponentScore
         record.memo = memo
+        record.date = date
         
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
@@ -37,7 +39,7 @@ extension BattleRecord {
     }
     
     // 更新
-    static func updateRecord(record: BattleRecord, isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String) {
+    static func updateRecord(record: BattleRecord, isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String, date: String) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
             record.isWon = isWon
@@ -47,6 +49,7 @@ extension BattleRecord {
             record.myScore = myScore
             record.opponentScore = opponentScore
             record.memo = memo
+            record.date = date
         }
     }
     

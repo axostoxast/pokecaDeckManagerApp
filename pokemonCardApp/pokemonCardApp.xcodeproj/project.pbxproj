@@ -11,6 +11,7 @@
 		9F26DEC7284B9D7F00F8F3F5 /* FavoriteDeckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DEC6284B9D7F00F8F3F5 /* FavoriteDeckListView.swift */; };
 		9F26DEC9284E559E00F8F3F5 /* RegisterRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */; };
 		9F26DECB284F925600F8F3F5 /* BattleRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DECA284F925600F8F3F5 /* BattleRecordListViewModel.swift */; };
+		9F26DECD2853736300F8F3F5 /* BattleRecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */; };
 		9F5F383127FC841F00830C0A /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F383027FC841F00830C0A /* LineView.swift */; };
 		9F5F383327FC883600830C0A /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F383227FC883600830C0A /* PopUpView.swift */; };
 		9F831C5F27F007B900E58719 /* pokemonCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F831C5E27F007B900E58719 /* pokemonCardApp.swift */; };
@@ -35,6 +36,7 @@
 		9F26DEC6284B9D7F00F8F3F5 /* FavoriteDeckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDeckListView.swift; sourceTree = "<group>"; };
 		9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRecordView.swift; sourceTree = "<group>"; };
 		9F26DECA284F925600F8F3F5 /* BattleRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListViewModel.swift; sourceTree = "<group>"; };
+		9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListView.swift; sourceTree = "<group>"; };
 		9F5F383027FC841F00830C0A /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		9F5F383227FC883600830C0A /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		9F831C5B27F007B800E58719 /* pokemonCardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonCardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +183,7 @@
 			children = (
 				DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */,
 				9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */,
+				9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */,
 			);
 			path = BattleRecords;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				DA480092284DE4F800C68C59 /* BattleRecordsMenuView.swift in Sources */,
 				9F831C7927F00C1A00E58719 /* AddDeckView.swift in Sources */,
 				9F26DEC7284B9D7F00F8F3F5 /* FavoriteDeckListView.swift in Sources */,
+				9F26DECD2853736300F8F3F5 /* BattleRecordListView.swift in Sources */,
 				9F26DECB284F925600F8F3F5 /* BattleRecordListViewModel.swift in Sources */,
 				9F831C7C27F00D2100E58719 /* Deck.swift in Sources */,
 				9F831C7F27F00D9E00E58719 /* DeckListViewModel.swift in Sources */,
@@ -435,7 +439,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "PokemonCardApp AppStore Profile";
@@ -466,7 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "PokemonCardApp AppStore Profile";

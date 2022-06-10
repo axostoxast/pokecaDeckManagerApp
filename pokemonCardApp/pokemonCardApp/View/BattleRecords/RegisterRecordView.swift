@@ -27,6 +27,9 @@ struct RegisterRecordView: View {
     // フォーカス管理
     @FocusState private var focusState : FocusField?
     
+    // Localizationから多言語取得
+    private let registered: String = NSLocalizedString("Registered", comment: "Registered")
+    
     var body: some View {
         ZStack{
             VStack(spacing: 0) {
@@ -135,6 +138,14 @@ struct RegisterRecordView: View {
                 
                 // 登録ボタン
                 Button("登録") {
+                    // 今日の日付取得
+                    let date = Date()
+                    // フォーマッター取得
+                    let dateFormatter = DateFormatter()
+                    // フォーマッターを使用して書式とロケールを指定する
+                    dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMM", options: 0, locale: Locale(identifier: "ja_JP"))
+                    recordViewModel.date = dateFormatter.string(from: date)
+                    
                     if resultValue == 1 {
                         recordViewModel.isWon = true
                     }
@@ -168,7 +179,7 @@ struct RegisterRecordView: View {
             
             // 登録成功メッセージ
             if isPopUpPresented {
-                PopUpView(isPresented: $isPopUpPresented, message: "Registered")
+                PopUpView(isPresented: $isPopUpPresented, message: registered)
             }
         }
         .foregroundColor(Color("basic"))

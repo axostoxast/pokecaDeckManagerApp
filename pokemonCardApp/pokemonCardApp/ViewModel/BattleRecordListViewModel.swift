@@ -17,6 +17,7 @@ class BattleRecordListViewModel: ObservableObject {
     @Published var myScore = ""
     @Published var opponentScore = ""
     @Published var memo = ""
+    @Published var date = ""
     
     init () {
         fetchRecords()
@@ -27,7 +28,7 @@ class BattleRecordListViewModel: ObservableObject {
     }
     
     func addRecord() {
-        BattleRecord.addRecord(isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo)
+        BattleRecord.addRecord(isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo, date: date)
         self.isWon = false
         self.isFirst = false
         self.myDeckName = ""
@@ -35,11 +36,12 @@ class BattleRecordListViewModel: ObservableObject {
         self.myScore = ""
         self.opponentScore = ""
         self.memo = ""
+        self.date = ""
         fetchRecords()
     }
     
     func updateRecord() {
-        BattleRecord.updateRecord(record: updatingRecord!, isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo)
+        BattleRecord.updateRecord(record: updatingRecord!, isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo, date: date)
         // 初期化
         self.isWon = false
         self.isFirst = false
@@ -48,6 +50,7 @@ class BattleRecordListViewModel: ObservableObject {
         self.myScore = ""
         self.opponentScore = ""
         self.memo = ""
+        self.date = ""
         updatingRecord = nil
         fetchRecords()
     }

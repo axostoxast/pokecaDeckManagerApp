@@ -26,7 +26,7 @@ struct BattleRecordsMenuView: View {
                 EmptyView()
             }
             
-            NavigationLink(destination:DeckListView(), isActive: $isShowRecordList) {
+            NavigationLink(destination:BattleRecordListView(), isActive: $isShowRecordList) {
                 EmptyView()
             }
         
