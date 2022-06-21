@@ -34,9 +34,15 @@ struct CellView: View {
                 
                 // 戦績
                 if battleRecord.isWon {
-                    Text("WIN")
+                    Image("win")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
                 } else {
-                    Text("LOSE")
+                    Image("lose")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
                 }
             }
             
@@ -48,9 +54,15 @@ struct CellView: View {
                 
                 // 先攻/後攻
                 if battleRecord.isFirst {
-                    Text("先攻")
+                    Image("senkou")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
                 } else {
-                    Text("後攻")
+                    Image("koukou")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
                 }
             }
             HStack{
