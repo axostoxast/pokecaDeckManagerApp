@@ -12,6 +12,7 @@
 		9F26DEC9284E559E00F8F3F5 /* RegisterRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */; };
 		9F26DECB284F925600F8F3F5 /* BattleRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DECA284F925600F8F3F5 /* BattleRecordListViewModel.swift */; };
 		9F26DECD2853736300F8F3F5 /* BattleRecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */; };
+		9F26DED02862177D00F8F3F5 /* BattleRecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DECF2862177C00F8F3F5 /* BattleRecordPresenter.swift */; };
 		9F5F383127FC841F00830C0A /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F383027FC841F00830C0A /* LineView.swift */; };
 		9F5F383327FC883600830C0A /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F383227FC883600830C0A /* PopUpView.swift */; };
 		9F831C5F27F007B900E58719 /* pokemonCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F831C5E27F007B900E58719 /* pokemonCardApp.swift */; };
@@ -37,6 +38,7 @@
 		9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRecordView.swift; sourceTree = "<group>"; };
 		9F26DECA284F925600F8F3F5 /* BattleRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListViewModel.swift; sourceTree = "<group>"; };
 		9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListView.swift; sourceTree = "<group>"; };
+		9F26DECF2862177C00F8F3F5 /* BattleRecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordPresenter.swift; sourceTree = "<group>"; };
 		9F5F383027FC841F00830C0A /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		9F5F383227FC883600830C0A /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		9F831C5B27F007B800E58719 /* pokemonCardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonCardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,14 @@
 			path = FavoriteDeckList;
 			sourceTree = "<group>";
 		};
+		9F26DECE286213B700F8F3F5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9F26DECF2862177C00F8F3F5 /* BattleRecordPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		9F5F382F27FC83F100830C0A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 			children = (
 				9F831C8127F0B07300E58719 /* View */,
 				9F831C7D27F00D8E00E58719 /* ViewModel */,
+				9F26DECE286213B700F8F3F5 /* Presenter */,
 				9F831C7A27F00D1300E58719 /* Model */,
 				9F831C5E27F007B900E58719 /* pokemonCardApp.swift */,
 				9F831C6227F007C300E58719 /* Assets.xcassets */,
@@ -278,6 +289,7 @@
 				9F831C7F27F00D9E00E58719 /* DeckListViewModel.swift in Sources */,
 				9F5F383327FC883600830C0A /* PopUpView.swift in Sources */,
 				9F831C7227F00B3400E58719 /* TopView.swift in Sources */,
+				9F26DED02862177D00F8F3F5 /* BattleRecordPresenter.swift in Sources */,
 				9F5F383127FC841F00830C0A /* LineView.swift in Sources */,
 				DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */,
 				9F831C5F27F007B900E58719 /* pokemonCardApp.swift in Sources */,

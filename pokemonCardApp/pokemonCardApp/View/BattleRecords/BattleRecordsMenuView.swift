@@ -21,22 +21,30 @@ struct BattleRecordsMenuView: View {
     }
     
     var body: some View {
-        ZStack{
-            NavigationLink(destination:RegisterRecordView(), isActive: $isShowRegisterRecord) {
-                EmptyView()
-            }
+        VStack {
+            LineView()
+                .padding(.bottom)
             
-            NavigationLink(destination:BattleRecordListView(), isActive: $isShowRecordList) {
-                EmptyView()
-            }
-        
-            VStack(spacing: 0) {
-                // 対戦成績記録
-                ButtonView(buttonName: register, isShowFlg: $isShowRegisterRecord)
+            Spacer()
+            
+            ZStack{
+                NavigationLink(destination:RegisterRecordView(), isActive: $isShowRegisterRecord) {
+                    EmptyView()
+                }
                 
-                // 対戦成績一覧
-                ButtonView(buttonName: list, isShowFlg: $isShowRecordList)
+                NavigationLink(destination:SelectDeckForRecordView(), isActive: $isShowRecordList) {
+                    EmptyView()
+                }
+            
+                VStack(spacing: 0) {
+                    // 対戦成績記録
+                    ButtonView(buttonName: register, isShowFlg: $isShowRegisterRecord)
+                    
+                    // 対戦成績一覧
+                    ButtonView(buttonName: list, isShowFlg: $isShowRecordList)
+                }
             }
+            Spacer()
         }
         .navigationTitle("Records")
         .navigationBarTitleDisplayMode(.inline)
