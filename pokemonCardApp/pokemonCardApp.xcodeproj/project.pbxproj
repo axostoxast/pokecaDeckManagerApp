@@ -39,6 +39,7 @@
 		9F26DECA284F925600F8F3F5 /* BattleRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListViewModel.swift; sourceTree = "<group>"; };
 		9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListView.swift; sourceTree = "<group>"; };
 		9F26DECF2862177C00F8F3F5 /* BattleRecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordPresenter.swift; sourceTree = "<group>"; };
+		9F26DED128621FD000F8F3F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9F5F383027FC841F00830C0A /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		9F5F383227FC883600830C0A /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		9F831C5B27F007B800E58719 /* pokemonCardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonCardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +115,7 @@
 		9F831C5D27F007B800E58719 /* pokemonCardApp */ = {
 			isa = PBXGroup;
 			children = (
+				9F26DED128621FD000F8F3F5 /* Info.plist */,
 				9F831C8127F0B07300E58719 /* View */,
 				9F831C7D27F00D8E00E58719 /* ViewModel */,
 				9F26DECE286213B700F8F3F5 /* Presenter */,
@@ -442,6 +444,8 @@
 				DEVELOPMENT_TEAM = TJM8F4Z2Z2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pokemonCardApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ポケカデッキ管理";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -473,6 +477,8 @@
 				DEVELOPMENT_TEAM = TJM8F4Z2Z2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pokemonCardApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ポケカデッキ管理";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
