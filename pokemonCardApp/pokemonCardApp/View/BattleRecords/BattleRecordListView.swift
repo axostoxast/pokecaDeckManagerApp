@@ -17,15 +17,22 @@ struct SelectDeckForRecordView: View {
             
             Spacer()
             
-            List {
-                ForEach(deckViewModel.decks) { deck in
-                    NavigationLink(destination: BattleRecordListView(deckName: deck.deckName)) {
-                        Text(deck.deckName)
+            if deckViewModel.decks.count > 0 {
+                List {
+                    ForEach(deckViewModel.decks) { deck in
+                        NavigationLink(destination: BattleRecordListView(deckName: deck.deckName)) {
+                            Text(deck.deckName)
+                        }
                     }
                 }
+                .listStyle(InsetListStyle())
+            } else {
+                // デッキ未登録の場合
+                Text("NoDecks")
+                    .font(.system(size: 20))
+                    .opacity(0.5)
+                
             }
-            .listStyle(InsetListStyle())
-            
             Spacer()
         }
         .navigationTitle("使用したデッキを選択")
@@ -50,16 +57,25 @@ struct BattleRecordListView: View {
             
             Spacer()
             
-            List {
-                Section {
-                    ForEach(presenter.recordList) { record in
-                        CellView(battleRecord: record)
+            if presenter.recordList.count > 0 {
+                List {
+                    Section {
+                        ForEach(presenter.recordList) { record in
+                            CellView(battleRecord: record)
+                        }
+                    } header: {
+                        Text("使用デッキ: \(deckName)")
                     }
-                } header: {
-                    Text("使用デッキ: \(deckName)")
                 }
+                .listStyle(InsetListStyle())
+            } else {
+                // 対戦成績未登録の場合
+                Spacer()
+                Text("対戦成績が未登録です")
+                    .font(.system(size: 20))
+                    .opacity(0.5)
+                Spacer()
             }
-            .listStyle(InsetListStyle())
             
             Spacer()
         }
