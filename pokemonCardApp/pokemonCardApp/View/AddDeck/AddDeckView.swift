@@ -21,7 +21,7 @@ struct AddDeckView: View {
     @State private var image: UIImage = UIImage()
     @State private var isShowPHPicker: Bool = false
     @State private var isPickedImage: Bool = false
-    @State private var isPopUpPresented: Bool = false
+    @State private var isPopUpSuccess: Bool = false
     
     // フォーカス管理
     @FocusState private var focusState : FocusField?
@@ -44,6 +44,7 @@ struct AddDeckView: View {
     }
     
     @ObservedObject var viewModel = DeckListViewModel.shared
+    @ObservedObject var presenter = AddDeckPresenter()
     
     var body: some View {
         ZStack {
@@ -140,20 +141,23 @@ struct AddDeckView: View {
                 
                 // 登録ボタン
                 Button(action: {
-                    viewModel.addDeck()
+                    presenter.addDeck()
                     // 登録成功メッセージ表示
                     withAnimation(.easeIn(duration: 0.2)) {
-                        isPopUpPresented = true
+                        isPopUpSuccess = true
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         withAnimation(.easeOut(duration: 0.1)) {
-                            isPopUpPresented = false
+                            isPopUpSuccess = false
                         }
                     }
                 }) {
                     Text("Register")
                         .foregroundColor(Color("basic"))
                 }
+                .alert("エラー", isPresented: $presenter.isError, actions: {}, message: {
+                    Text(presenter.errorMessage)
+                })
                 .frame(width: registerButtonWidth, height: registerButtonHeight, alignment: .center)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
@@ -164,8 +168,8 @@ struct AddDeckView: View {
             }
             
             // 登録成功メッセージ
-            if isPopUpPresented {
-                PopUpView(isPresented: $isPopUpPresented, message: registered)
+            if isPopUpSuccess {
+                PopUpView(isPresented: $isPopUpSuccess, message: registered)
             }
         }
         .ignoresSafeArea(.keyboard)
