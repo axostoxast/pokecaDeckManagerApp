@@ -19,16 +19,13 @@ struct RegisterRecordView: View {
     @ObservedObject var deckViewModel = DeckListViewModel.shared
     @ObservedObject var recordViewModel = BattleRecordListViewModel.shared
     
-    @State private var myDeckNameList: [String] = ["使用デッキ"]
+    @State private var myDeckNameList: [String] = [MultilingualDefine.usedDeck]
     @State private var resultValue = 1
     @State private var turnValue = 1
     @State private var isPopUpPresented: Bool = false
     
     // フォーカス管理
     @FocusState private var focusState : FocusField?
-    
-    // Localizationから多言語取得
-    private let registered: String = NSLocalizedString("Registered", comment: "Registered")
     
     var body: some View {
         VStack {
@@ -41,8 +38,8 @@ struct RegisterRecordView: View {
                 VStack(spacing: 0) {
                     // 勝敗
                     Picker("", selection: $resultValue) {
-                        Text("勝ち").tag(1)
-                        Text("負け").tag(2)
+                        Text("Win").tag(1)
+                        Text("Lose").tag(2)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .frame(width: UIScreen.main.bounds.width * 0.8)
@@ -50,8 +47,8 @@ struct RegisterRecordView: View {
                     
                     // 先攻/後攻
                     Picker("", selection: $turnValue) {
-                        Text("先攻").tag(1)
-                        Text("後攻").tag(2)
+                        Text("First").tag(1)
+                        Text("Second").tag(2)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .frame(width: UIScreen.main.bounds.width * 0.8)
@@ -59,10 +56,10 @@ struct RegisterRecordView: View {
                     
                     // 使用デッキ
                     HStack {
-                        Text("使用デッキ")
+                        Text("UsedDeck")
                             .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
                         
-                        Picker(selection: $recordViewModel.myDeckName, label: Text("勝利デッキ")) {
+                        Picker(selection: $recordViewModel.myDeckName, label: Text("UsedDeck")) {
                             ForEach(myDeckNameList, id: \.self) { value in
                                 Text(value).tag(value)
                             }
@@ -74,7 +71,7 @@ struct RegisterRecordView: View {
                     
                     // 相手デッキ
                     HStack {
-                        Text("相手デッキ")
+                        Text("OpponentDeck")
                             .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
                         
                         TextField("", text: $recordViewModel.opponentDeckName)
@@ -96,7 +93,7 @@ struct RegisterRecordView: View {
                     // サイド数
                     HStack {
                         HStack {
-                            Text("取ったサイド")
+                            Text("MyPrizeCard")
                             
                             TextField("", text: $recordViewModel.myScore)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -107,7 +104,7 @@ struct RegisterRecordView: View {
                         .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
                         
                         HStack {
-                            Text("取られたサイド")
+                            Text("OpponentPrizeCard")
                             
                             TextField("", text: $recordViewModel.opponentScore)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -143,7 +140,7 @@ struct RegisterRecordView: View {
                     .padding(.bottom)
                     
                     // 登録ボタン
-                    Button("登録") {
+                    Button("Register") {
                         // 今日の日付取得
                         let date = Date()
                         // フォーマッター取得
@@ -185,7 +182,7 @@ struct RegisterRecordView: View {
                 
                 // 登録成功メッセージ
                 if isPopUpPresented {
-                    PopUpView(isPresented: $isPopUpPresented, message: registered)
+                    PopUpView(isPresented: $isPopUpPresented, message: MultilingualDefine.registered)
                 }
             }
             Spacer()

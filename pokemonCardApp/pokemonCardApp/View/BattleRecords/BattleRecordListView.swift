@@ -35,7 +35,7 @@ struct SelectDeckForRecordView: View {
             }
             Spacer()
         }
-        .navigationTitle("使用したデッキを選択")
+        .navigationTitle("SelectUsedDeck")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -64,14 +64,14 @@ struct BattleRecordListView: View {
                             CellView(battleRecord: record)
                         }
                     } header: {
-                        Text("使用デッキ: \(deckName)")
+                        Text("\(MultilingualDefine.usedDeck): \(deckName)")
                     }
                 }
                 .listStyle(InsetListStyle())
             } else {
                 // 対戦成績未登録の場合
                 Spacer()
-                Text("対戦成績が未登録です")
+                Text("NoRecords")
                     .font(.system(size: 20))
                     .opacity(0.5)
                 Spacer()
@@ -79,7 +79,7 @@ struct BattleRecordListView: View {
             
             Spacer()
         }
-        .navigationTitle("対戦成績一覧")
+        .navigationTitle("BattleRecordList")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -92,7 +92,7 @@ struct CellView: View {
         VStack{
             HStack{
                 // 相手のデッキ
-                Text("相手のデッキ: \(battleRecord.opponentDeckName)")
+                Text("\(MultilingualDefine.opponentDeck): \(battleRecord.opponentDeckName)")
                 
                 Spacer()
                 
@@ -111,10 +111,10 @@ struct CellView: View {
             }
             HStack{
                 // 取ったサイド
-                Text("取ったサイド: \(battleRecord.myScore)")
+                Text("\(MultilingualDefine.myPrizeCard): \(battleRecord.myScore)")
                 
                 // 取られたサイド
-                Text("取られたサイド: \(battleRecord.opponentScore)")
+                Text("\(MultilingualDefine.opponentPrizeCard): \(battleRecord.opponentScore)")
                 
                 Spacer()
                 

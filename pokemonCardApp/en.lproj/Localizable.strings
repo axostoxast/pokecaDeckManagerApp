@@ -7,7 +7,7 @@
 */
 
 "Add" = "ADD NEW DECK";
-"List" = "DECK LIST";
+"DeckList" = "DECK LIST";
 "Favorite" = "FAVORITE DECK LIST";
 "Records" = "BATTLE RECORDS";
 "NoDecks" = "No decks.";
@@ -23,3 +23,13 @@
 "Copied" = "Copied";
 "RegisterRecord" = "Register battle record";
 "RecordList" = "Battle record list";
+"Win" = "Win";
+"Lose" = "Lose";
+"First" = "First";
+"Second" = "Second";
+"UsedDeck" = "Used deck";
+"OpponentDeck" = "Opponent Deck";
+"MyPrizeCard" = "Prize cards";
+"OpponentPrizeCard" = "Opponent prize cards";
+"SelectUsedDeck" = "Select Used Deck";
+"NoRecords" = "No Records.";

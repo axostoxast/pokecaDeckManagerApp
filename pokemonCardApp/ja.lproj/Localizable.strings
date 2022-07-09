@@ -7,7 +7,7 @@
 */
 
 "Add" = "デッキ登録";
-"List" = "デッキリスト";
+"DeckList" = "デッキリスト";
 "Favorite" = "お気に入りデッキ";
 "Records" = "対戦成績";
 "NoDecks" = "デッキが未登録です";
@@ -23,3 +23,13 @@
 "Copied" = "コピーしました";
 "RegisterRecord" = "対戦成績を記録する";
 "RecordList" = "対戦成績一覧";
+"Win" = "勝ち";
+"Lose" = "負け";
+"First" = "先攻";
+"Second" = "後攻";
+"UsedDeck" = "使用デッキ";
+"OpponentDeck" = "相手デッキ";
+"MyPrizeCard" = "取ったサイド";
+"OpponentPrizeCard" = "取られたサイド";
+"SelectUsedDeck" = "使用したデッキを選択";
+"NoRecords" = "対戦成績が未登録です";

@@ -30,6 +30,8 @@
 		DA480092284DE4F800C68C59 /* BattleRecordsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */; };
 		DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480093284DE7E800C68C59 /* BattleRecords.swift */; };
 		F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */; };
+		F6DDF6BA2879DB8600C995B0 /* MultilingualDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */; };
+		F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BC2879E00600C995B0 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordsMenuView.swift; sourceTree = "<group>"; };
 		DA480093284DE7E800C68C59 /* BattleRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecords.swift; sourceTree = "<group>"; };
 		F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeckPresenter.swift; sourceTree = "<group>"; };
+		F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilingualDefine.swift; sourceTree = "<group>"; };
+		F6DDF6BC2879E00600C995B0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +96,9 @@
 		9F5F382F27FC83F100830C0A /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9F5F383027FC841F00830C0A /* LineView.swift */,
-				9F5F383227FC883600830C0A /* PopUpView.swift */,
+				F6DDF6BB2879DFF300C995B0 /* Logger */,
+				F6DDF6B72879DB4F00C995B0 /* View */,
+				F6DDF6B82879DB5D00C995B0 /* Multilingual */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -204,6 +209,31 @@
 			path = BattleRecords;
 			sourceTree = "<group>";
 		};
+		F6DDF6B72879DB4F00C995B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F5F383027FC841F00830C0A /* LineView.swift */,
+				9F5F383227FC883600830C0A /* PopUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6DDF6B82879DB5D00C995B0 /* Multilingual */ = {
+			isa = PBXGroup;
+			children = (
+				F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */,
+			);
+			path = Multilingual;
+			sourceTree = "<group>";
+		};
+		F6DDF6BB2879DFF300C995B0 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				F6DDF6BC2879E00600C995B0 /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,7 +267,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					9F831C5A27F007B800E58719 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -285,9 +315,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */,
 				DA480092284DE4F800C68C59 /* BattleRecordsMenuView.swift in Sources */,
 				9F831C7927F00C1A00E58719 /* AddDeckView.swift in Sources */,
 				9F26DEC7284B9D7F00F8F3F5 /* FavoriteDeckListView.swift in Sources */,
+				F6DDF6BA2879DB8600C995B0 /* MultilingualDefine.swift in Sources */,
 				9F26DECD2853736300F8F3F5 /* BattleRecordListView.swift in Sources */,
 				9F26DECB284F925600F8F3F5 /* BattleRecordListViewModel.swift in Sources */,
 				9F831C7C27F00D2100E58719 /* Deck.swift in Sources */,
@@ -324,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -385,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -441,8 +475,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pokemonCardApp/Preview Content\"";
 				DEVELOPMENT_TEAM = TJM8F4Z2Z2;
@@ -459,10 +493,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "PokemonCardApp AppStore Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -474,8 +508,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pokemonCardApp/Preview Content\"";
 				DEVELOPMENT_TEAM = TJM8F4Z2Z2;
@@ -492,10 +526,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "PokemonCardApp AppStore Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

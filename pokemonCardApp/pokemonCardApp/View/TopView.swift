@@ -16,12 +16,6 @@ struct TopView: View {
     @State private var isShowMyFavoriteCollection = false
     @State private var isShowRecords = false
     
-    // Localizationから多言語取得
-    private let add: String = NSLocalizedString("Add", comment: "Add")
-    private let list: String = NSLocalizedString("List", comment: "List")
-    private let favorite: String = NSLocalizedString("Favorite", comment: "Favorite")
-    private let records: String = NSLocalizedString("Records", comment: "Records")
-    
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("basic"))]
     }
@@ -47,16 +41,16 @@ struct TopView: View {
             
                 VStack(spacing: 0) {
                     // デッキ登録
-                    ButtonView(buttonName: add, isShowFlg: $isShowAddDeck)
+                    ButtonView(buttonName: MultilingualDefine.add, isShowFlg: $isShowAddDeck)
                     
                     // デッキリスト
-                    ButtonView(buttonName: list, isShowFlg: $isShowMyCollection)
+                    ButtonView(buttonName: MultilingualDefine.deckList, isShowFlg: $isShowMyCollection)
                     
                     // お気に入りリスト
-                    ButtonView(buttonName: favorite, isShowFlg: $isShowMyFavoriteCollection)
+                    ButtonView(buttonName: MultilingualDefine.favorite, isShowFlg: $isShowMyFavoriteCollection)
 
                     // 対戦成績メニュー
-                    ButtonView(buttonName: records, isShowFlg: $isShowRecords)
+                    ButtonView(buttonName: MultilingualDefine.records, isShowFlg: $isShowRecords)
                 }
             }
         }

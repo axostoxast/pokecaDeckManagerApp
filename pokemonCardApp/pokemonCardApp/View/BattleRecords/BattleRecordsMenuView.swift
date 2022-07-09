@@ -12,10 +12,6 @@ struct BattleRecordsMenuView: View {
     @State private var isShowRegisterRecord = false
     @State private var isShowRecordList = false
     
-    // Localizationから多言語取得
-    private let register: String = NSLocalizedString("RegisterRecord", comment: "RegisterRecord")
-    private let list: String = NSLocalizedString("RecordList", comment: "RecordList")
-    
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("basic"))]
     }
@@ -38,10 +34,10 @@ struct BattleRecordsMenuView: View {
             
                 VStack(spacing: 0) {
                     // 対戦成績記録
-                    ButtonView(buttonName: register, isShowFlg: $isShowRegisterRecord)
+                    ButtonView(buttonName: MultilingualDefine.register, isShowFlg: $isShowRegisterRecord)
                     
                     // 対戦成績一覧
-                    ButtonView(buttonName: list, isShowFlg: $isShowRecordList)
+                    ButtonView(buttonName: MultilingualDefine.recordList, isShowFlg: $isShowRecordList)
                 }
             }
             Spacer()
