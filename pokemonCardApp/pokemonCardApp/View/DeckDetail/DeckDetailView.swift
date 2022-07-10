@@ -9,12 +9,9 @@ import SwiftUI
 
 struct DeckDetailView: View {
     
-    var name: String
-    var code: String
-    var memo: String
-    var imageData: Data
-    
+    @State var deck: Deck
     @State private var isPopUpPresented = false
+    @State private var isShowEditView = false
     
     /// 表示項目のサイズ定義
     let textWidth = UIScreen.main.bounds.width * 0.8
@@ -26,30 +23,35 @@ struct DeckDetailView: View {
     
     var body: some View {
         ZStack {
+            // 編集画面遷移
+            NavigationLink(destination: EditDeckView(deck: deck), isActive: $isShowEditView){
+                EmptyView()
+            }
+            
             VStack(alignment: .center) {
                 LineView()
                     .padding(.bottom)
                 
                 // デッキ名
-                Text(name)
+                Text(deck.deckName)
                     .font(.system(size: 24))
                     .foregroundColor(Color("basic"))
                     .frame(width: textWidth, alignment: .leading)
                     .padding(.bottom)
                 
                 // デッキコード
-                Text(code)
+                Text(deck.deckCode)
                     .font(.system(size: 24))
                 .foregroundColor(Color("basic"))
                 .frame(width: textWidth, alignment: .leading)
                 
                 // コピーボタン
-                if !code.isEmpty {
+                if !deck.deckCode.isEmpty {
                     HStack {
                         Text("")
                             .frame(width: emptyWidth, height: copyButtonHeight, alignment: .trailing)
                         Button {
-                            UIPasteboard.general.string = code
+                            UIPasteboard.general.string = deck.deckCode
                             withAnimation(.easeIn(duration: 0.2)) {
                                 isPopUpPresented = true
                             }
@@ -71,7 +73,7 @@ struct DeckDetailView: View {
                     }
                 }
                 
-                if let image = UIImage(data: imageData) {
+                if let image = UIImage(data: deck.deckImageData) {
                     // デッキ画像
                     Image(uiImage: image)
                         .resizable()
@@ -86,7 +88,7 @@ struct DeckDetailView: View {
                 }
                 
                 // メモ
-                Text(memo)
+                Text(deck.deckMemo)
                     .font(.system(size: 24))
                     .foregroundColor(Color("basic"))
                     .frame(width: textWidth, alignment: .leading)
@@ -100,7 +102,14 @@ struct DeckDetailView: View {
             }
         }
         // ヘッダー
-        .navigationTitle(name)
+        .navigationTitle(deck.deckName)
+        .navigationBarItems(
+            trailing: Button {
+                isShowEditView = true
+            } label: {
+                Text("編集")
+            }
+        )
         .navigationBarTitleDisplayMode(.inline)
     }
 }

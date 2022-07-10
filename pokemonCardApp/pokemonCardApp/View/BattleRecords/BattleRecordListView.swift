@@ -79,7 +79,7 @@ struct BattleRecordListView: View {
             
             Spacer()
         }
-        .navigationTitle("BattleRecordList")
+        .navigationTitle("RecordList")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

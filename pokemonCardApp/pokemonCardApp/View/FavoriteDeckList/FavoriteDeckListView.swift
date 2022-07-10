@@ -22,7 +22,7 @@ struct FavoriteDeckListView: View {
                     ForEach(viewModel.favoriteDecks) { deck in
                         VStack {
                             HStack {
-                                NavigationLink(destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData)) {
+                                NavigationLink(destination: DeckDetailView(deck: deck)) {
                                     DeckCellView(deck: deck, isFavorite: deck.isFavorite, deckName: deck.deckName, viewModel: viewModel)
                                 }
                             }

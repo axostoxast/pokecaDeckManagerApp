@@ -32,6 +32,7 @@
 		F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */; };
 		F6DDF6BA2879DB8600C995B0 /* MultilingualDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */; };
 		F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BC2879E00600C995B0 /* Logger.swift */; };
+		F6DDF6C0287B1AF500C995B0 /* EditDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BF287B1AF500C995B0 /* EditDeckView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeckPresenter.swift; sourceTree = "<group>"; };
 		F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilingualDefine.swift; sourceTree = "<group>"; };
 		F6DDF6BC2879E00600C995B0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F6DDF6BF287B1AF500C995B0 /* EditDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,11 +191,12 @@
 			isa = PBXGroup;
 			children = (
 				9F831C7127F00B3400E58719 /* TopView.swift */,
-				9F831C7727F00BFB00E58719 /* AddDeck */,
 				9F831C7427F00BCF00E58719 /* DeckList */,
+				9F831C7727F00BFB00E58719 /* AddDeck */,
+				F6DDF6BE287B1ABB00C995B0 /* EditDeck */,
+				9F831C8027F0B05D00E58719 /* DeckDetail */,
 				9F26DEC5284B9D5F00F8F3F5 /* FavoriteDeckList */,
 				DA480090284DE4C400C68C59 /* BattleRecords */,
-				9F831C8027F0B05D00E58719 /* DeckDetail */,
 				9F5F382F27FC83F100830C0A /* Common */,
 			);
 			path = View;
@@ -232,6 +235,14 @@
 				F6DDF6BC2879E00600C995B0 /* Logger.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		F6DDF6BE287B1ABB00C995B0 /* EditDeck */ = {
+			isa = PBXGroup;
+			children = (
+				F6DDF6BF287B1AF500C995B0 /* EditDeckView.swift */,
+			);
+			path = EditDeck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 				9F831C7227F00B3400E58719 /* TopView.swift in Sources */,
 				9F26DED02862177D00F8F3F5 /* BattleRecordPresenter.swift in Sources */,
 				9F5F383127FC841F00830C0A /* LineView.swift in Sources */,
+				F6DDF6C0287B1AF500C995B0 /* EditDeckView.swift in Sources */,
 				F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */,
 				DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */,
 				9F831C5F27F007B900E58719 /* pokemonCardApp.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 struct DeckListView: View {
     
     @ObservedObject var viewModel = DeckListViewModel.shared
+    @State var isShowEditView = false
     
     var body: some View {
         VStack {
@@ -22,12 +23,14 @@ struct DeckListView: View {
                     ForEach(viewModel.decks) { deck in
                         VStack {
                             HStack {
-                                NavigationLink(destination: DeckDetailView(name: deck.deckName, code: deck.deckCode, memo: deck.deckMemo, imageData: deck.deckImageData)) {
+                                // 詳細画面遷移
+                                NavigationLink(destination: DeckDetailView(deck: deck)) {
                                     DeckCellView(deck: deck, isFavorite: deck.isFavorite, deckName: deck.deckName, viewModel: viewModel)
                                 }
                             }
                         }
                         .swipeActions(edge: .trailing) {
+                            // 削除ボタン
                             Button {
                                 viewModel.deleteDeck(deck: deck)
                             } label: {
@@ -50,7 +53,7 @@ struct DeckListView: View {
             }
         }
         // ヘッダー
-        .navigationTitle("List")
+        .navigationTitle("DeckList")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
