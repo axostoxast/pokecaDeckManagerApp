@@ -107,7 +107,7 @@ struct DeckDetailView: View {
             trailing: Button {
                 isShowEditView = true
             } label: {
-                Text("編集")
+                Text("Edit")
             }
         )
         .navigationBarTitleDisplayMode(.inline)

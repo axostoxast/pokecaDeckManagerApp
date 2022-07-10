@@ -199,7 +199,7 @@ struct EditDeckView: View {
                 }
             }
         }
-        .navigationTitle("デッキ編集")
+        .navigationTitle("Edit")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
