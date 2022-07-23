@@ -22,7 +22,7 @@ struct TopView: View {
     
     var body: some View {
         NavigationView {
-            ZStack{
+            ZStack {
                 NavigationLink(destination:AddDeckView(), isActive: $isShowAddDeck) {
                     EmptyView()
                 }
@@ -51,6 +51,11 @@ struct TopView: View {
 
                     // 対戦成績メニュー
                     ButtonView(buttonName: MultilingualDefine.records, isShowFlg: $isShowRecords)
+                }
+            }
+            .toolbar{
+                ToolbarItem(placement: .bottomBar) {
+                    BannerView()
                 }
             }
         }

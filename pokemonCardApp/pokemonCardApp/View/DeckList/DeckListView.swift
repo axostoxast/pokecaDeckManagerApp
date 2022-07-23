@@ -55,6 +55,11 @@ struct DeckListView: View {
         // ヘッダー
         .navigationTitle("DeckList")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                BannerView()
+            }
+        }
     }
 }
 

@@ -163,6 +163,11 @@ struct AddDeckView: View {
                 
                 Spacer()
             }
+            .toolbar{
+                ToolbarItem(placement: .bottomBar) {
+                    BannerView()
+                }
+            }
             
             // 登録成功メッセージ
             if isPopUpSuccess {

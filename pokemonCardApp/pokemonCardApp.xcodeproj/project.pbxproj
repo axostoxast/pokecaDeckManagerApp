@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86B27D541A57C10C38EC31AF /* Pods_pokemonCardApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094BF3FE810823F52873E049 /* Pods_pokemonCardApp.framework */; };
 		9F26DEBF284B841F00F8F3F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F26DEC1284B841F00F8F3F5 /* Localizable.strings */; };
 		9F26DEC7284B9D7F00F8F3F5 /* FavoriteDeckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DEC6284B9D7F00F8F3F5 /* FavoriteDeckListView.swift */; };
 		9F26DEC9284E559E00F8F3F5 /* RegisterRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */; };
@@ -29,6 +30,7 @@
 		9F831C8627F5ABFD00E58719 /* SwiftUIPHPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9F831C8527F5ABFD00E58719 /* SwiftUIPHPicker */; };
 		DA480092284DE4F800C68C59 /* BattleRecordsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */; };
 		DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480093284DE7E800C68C59 /* BattleRecords.swift */; };
+		F60BEEE9288BFC8F0049D01A /* BannerAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */; };
 		F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */; };
 		F6DDF6BA2879DB8600C995B0 /* MultilingualDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */; };
 		F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BC2879E00600C995B0 /* Logger.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		094BF3FE810823F52873E049 /* Pods_pokemonCardApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokemonCardApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D9E791B5DFC2ED3FF50E28B /* Pods-pokemonCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonCardApp.release.xcconfig"; path = "Target Support Files/Pods-pokemonCardApp/Pods-pokemonCardApp.release.xcconfig"; sourceTree = "<group>"; };
 		9F26DEC0284B841F00F8F3F5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F26DEC2284B842200F8F3F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F26DEC6284B9D7F00F8F3F5 /* FavoriteDeckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDeckListView.swift; sourceTree = "<group>"; };
@@ -56,8 +60,10 @@
 		9F831C7B27F00D2100E58719 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		9F831C7E27F00D9E00E58719 /* DeckListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListViewModel.swift; sourceTree = "<group>"; };
 		9F831C8227F0B0EF00E58719 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
+		A0F74A6CEB973DDD7D41ACDD /* Pods-pokemonCardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonCardApp.debug.xcconfig"; path = "Target Support Files/Pods-pokemonCardApp/Pods-pokemonCardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordsMenuView.swift; sourceTree = "<group>"; };
 		DA480093284DE7E800C68C59 /* BattleRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecords.swift; sourceTree = "<group>"; };
+		F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdd.swift; sourceTree = "<group>"; };
 		F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeckPresenter.swift; sourceTree = "<group>"; };
 		F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilingualDefine.swift; sourceTree = "<group>"; };
 		F6DDF6BC2879E00600C995B0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -72,12 +78,21 @@
 				9F831C7027F00AAF00E58719 /* RealmSwift in Frameworks */,
 				9F831C6E27F00AAF00E58719 /* Realm in Frameworks */,
 				9F831C8627F5ABFD00E58719 /* SwiftUIPHPicker in Frameworks */,
+				86B27D541A57C10C38EC31AF /* Pods_pokemonCardApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D269485FE39D84F90C5E075 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				094BF3FE810823F52873E049 /* Pods_pokemonCardApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9F26DEC5284B9D5F00F8F3F5 /* FavoriteDeckList */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +126,8 @@
 				9F26DEC1284B841F00F8F3F5 /* Localizable.strings */,
 				9F831C5D27F007B800E58719 /* pokemonCardApp */,
 				9F831C5C27F007B800E58719 /* Products */,
+				D64235F0D9B4279B7420797F /* Pods */,
+				5D269485FE39D84F90C5E075 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +147,7 @@
 				9F831C7D27F00D8E00E58719 /* ViewModel */,
 				9F26DECE286213B700F8F3F5 /* Presenter */,
 				9F831C7A27F00D1300E58719 /* Model */,
+				F60BEEE7288BFC760049D01A /* Advertisements */,
 				9F831C5E27F007B900E58719 /* pokemonCardApp.swift */,
 				9F831C6227F007C300E58719 /* Assets.xcassets */,
 				9F831C6427F007C300E58719 /* Preview Content */,
@@ -202,6 +220,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D64235F0D9B4279B7420797F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0F74A6CEB973DDD7D41ACDD /* Pods-pokemonCardApp.debug.xcconfig */,
+				2D9E791B5DFC2ED3FF50E28B /* Pods-pokemonCardApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DA480090284DE4C400C68C59 /* BattleRecords */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +237,14 @@
 				9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */,
 			);
 			path = BattleRecords;
+			sourceTree = "<group>";
+		};
+		F60BEEE7288BFC760049D01A /* Advertisements */ = {
+			isa = PBXGroup;
+			children = (
+				F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */,
+			);
+			path = Advertisements;
 			sourceTree = "<group>";
 		};
 		F6DDF6B72879DB4F00C995B0 /* View */ = {
@@ -252,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F831C6927F007C300E58719 /* Build configuration list for PBXNativeTarget "pokemonCardApp" */;
 			buildPhases = (
+				8D442D74CE506AA61627653C /* [CP] Check Pods Manifest.lock */,
 				9F831C5727F007B800E58719 /* Sources */,
 				9F831C5827F007B800E58719 /* Frameworks */,
 				9F831C5927F007B800E58719 /* Resources */,
+				5F42881FD3E67C6496AD9DE1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,11 +358,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5F42881FD3E67C6496AD9DE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pokemonCardApp/Pods-pokemonCardApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pokemonCardApp/Pods-pokemonCardApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pokemonCardApp/Pods-pokemonCardApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D442D74CE506AA61627653C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pokemonCardApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9F831C5727F007B800E58719 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F60BEEE9288BFC8F0049D01A /* BannerAdd.swift in Sources */,
 				F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */,
 				DA480092284DE4F800C68C59 /* BattleRecordsMenuView.swift in Sources */,
 				9F831C7927F00C1A00E58719 /* AddDeckView.swift in Sources */,
@@ -484,6 +564,7 @@
 		};
 		9F831C6A27F007C300E58719 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0F74A6CEB973DDD7D41ACDD /* Pods-pokemonCardApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -505,7 +586,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -517,6 +598,7 @@
 		};
 		9F831C6B27F007C300E58719 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D9E791B5DFC2ED3FF50E28B /* Pods-pokemonCardApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -538,7 +620,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
