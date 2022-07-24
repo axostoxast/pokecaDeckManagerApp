@@ -52,6 +52,12 @@ struct FavoriteDeckListView: View {
         // ヘッダー
         .navigationTitle("Favorite")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                BannerView()
+                    .frame(width: UIScreen.main.bounds.width, height: 50)
+            }
+        }
     }
 }
 

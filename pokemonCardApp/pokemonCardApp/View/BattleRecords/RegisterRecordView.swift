@@ -196,5 +196,11 @@ struct RegisterRecordView: View {
         }
         .navigationTitle("RegisterRecord")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                BannerView()
+                    .frame(width: UIScreen.main.bounds.width, height: 50)
+            }
+        }
     }
 }

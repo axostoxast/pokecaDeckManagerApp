@@ -201,5 +201,11 @@ struct EditDeckView: View {
         }
         .navigationTitle("Edit")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                BannerView()
+                    .frame(width: UIScreen.main.bounds.width, height: 50)
+            }
+        }
     }
 }

@@ -37,6 +37,12 @@ struct SelectDeckForRecordView: View {
         }
         .navigationTitle("SelectUsedDeck")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                BannerView()
+                    .frame(width: UIScreen.main.bounds.width, height: 50)
+            }
+        }
     }
 }
 
@@ -81,6 +87,12 @@ struct BattleRecordListView: View {
         }
         .navigationTitle("RecordList")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                BannerView()
+                    .frame(width: UIScreen.main.bounds.width, height: 50)
+            }
+        }
     }
 }
 
