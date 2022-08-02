@@ -1,0 +1,26 @@
+# Xcode
+## Mac OS X
+.DS_Store
+
+## Xcode build files
+build/
+DerivedData/
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Xcode Patch
+*.xcodeproj/
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+
+## library
+Pods/
+
+## Other
+*.xccheckout
+*.xcuserstate
+xcuserdata/
