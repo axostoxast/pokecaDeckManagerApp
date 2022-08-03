@@ -14,20 +14,6 @@ class Deck: Object, Identifiable {
     @Persisted var deckMemo = ""
     @Persisted var deckImageData = Data()
     @Persisted var isFavorite = false
-    
-    init(
-        deckName: String = "",
-        deckCode: String = "",
-        deckMemo: String = "",
-        deckImageData: Data = Data(),
-        isFavorite: Bool = false
-    ) {
-        self.deckName = deckName
-        self.deckCode = deckCode
-        self.deckMemo = deckMemo
-        self.deckImageData = deckImageData
-        self.isFavorite = isFavorite
-    }
 }
 
 class DeckParam {

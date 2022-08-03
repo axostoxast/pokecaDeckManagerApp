@@ -10,4 +10,5 @@ import os
 
 extension OSLog {
     static let normal = Logger(subsystem: "com.eses.pokemonCardApp", category: "ui")
+    static let advertisement = Logger(subsystem: "com.eses.pokemonCardApp", category: "advertisement")
 }
