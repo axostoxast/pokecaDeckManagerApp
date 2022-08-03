@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPieChart
 
 struct SelectDeckForRecordView: View {
     @ObservedObject var deckViewModel = DeckListViewModel.shared
@@ -20,7 +21,7 @@ struct SelectDeckForRecordView: View {
             if deckViewModel.decks.count > 0 {
                 List {
                     ForEach(deckViewModel.decks) { deck in
-                        NavigationLink(destination: BattleRecordListView(deckName: deck.deckName)) {
+                        NavigationLink(destination: BattleRecordTabView(deckName: deck.deckName)) {
                             Text(deck.deckName)
                         }
                     }
@@ -46,10 +47,12 @@ struct SelectDeckForRecordView: View {
     }
 }
 
-struct BattleRecordListView: View {
+struct BattleRecordTabView: View {
     
     @ObservedObject var presenter: BattleRecordPresenter
     var deckName: String
+    
+    @State var selectedTab = 1
     
     init(deckName: String) {
         presenter = BattleRecordPresenter(deckName: deckName)
@@ -64,16 +67,16 @@ struct BattleRecordListView: View {
             Spacer()
             
             if presenter.recordList.count > 0 {
-                List {
-                    Section {
-                        ForEach(presenter.recordList) { record in
-                            CellView(battleRecord: record)
-                        }
-                    } header: {
-                        Text("\(MultilingualDefine.usedDeck): \(deckName)")
-                    }
+                // 画面切り替えタブ
+                TabBarView(selectedTab: $selectedTab)
+                
+                TabView(selection: $selectedTab) {
+                    RecordListView(presenter: presenter, deckName: deckName)
+                        .tag(1)
+                    
+                    BattleRecordGraphView(presenter: presenter)
+                        .tag(2)
                 }
-                .listStyle(InsetListStyle())
             } else {
                 // 対戦成績未登録の場合
                 Spacer()
@@ -93,6 +96,25 @@ struct BattleRecordListView: View {
                     .frame(width: UIScreen.main.bounds.width, height: 50)
             }
         }
+    }
+}
+
+struct RecordListView: View {
+    
+    @ObservedObject var presenter: BattleRecordPresenter
+    var deckName: String
+    
+    var body: some View {
+        List {
+            Section {
+                ForEach(presenter.recordList) { record in
+                    CellView(battleRecord: record)
+                }
+            } header: {
+                Text("\(MultilingualDefine.usedDeck): \(deckName)")
+            }
+        }
+        .listStyle(InsetListStyle())
     }
 }
 
@@ -145,5 +167,59 @@ struct CellView: View {
             }
         }
         .font(.system(size: 14))
+    }
+}
+
+struct BattleRecordGraphView: View {
+    
+    @ObservedObject var presenter: BattleRecordPresenter
+    
+    var body: some View {
+        List {
+            ForEach(presenter.pieChartDataList) { data in
+                Text("対\(data.opponentDeck)")
+                    .foregroundColor(Color("basic"))
+                CustomPieChartView(
+                    values: [data.winAndFirst, data.winAndSecond, data.loseAndFirst, data.loseAndSecond],
+                    names: ["勝ち(先行)", "勝ち(後行)", "負け(先行)", "負け(後行)"],
+                    colors: [Color("orange"), Color("pink"), Color("blue"), Color("purple")],
+                    widthFraction: 0.5,
+                    innerRadiusFraction: 0.5
+                )
+            }
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(InsetListStyle())
+        
+        Spacer()
+    }
+}
+
+struct TabBarView: View {
+    @Binding var selectedTab: Int
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Image(systemName: "list.dash.header.rectangle")
+                    
+                Text("リスト")
+            }
+            .foregroundColor(selectedTab == 1 ? Color.blue : Color.gray)
+            .onTapGesture {
+                self.selectedTab = 1
+            }
+            Spacer()
+            VStack {
+                Image(systemName: "chart.pie")
+                    
+                Text("グラフ")
+            }
+            .foregroundColor(selectedTab == 2 ? Color.blue : Color.gray)
+            .onTapGesture {
+                self.selectedTab = 2
+            }
+            Spacer()
+        }
     }
 }
