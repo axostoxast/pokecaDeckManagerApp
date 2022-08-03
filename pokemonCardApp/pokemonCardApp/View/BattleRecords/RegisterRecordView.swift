@@ -152,7 +152,7 @@ struct RegisterRecordView: View {
                         if resultValue == 1 {
                             recordViewModel.isWon = true
                         }
-                        if resultValue == 1 {
+                        if turnValue == 1 {
                             recordViewModel.isFirst = true
                         }
                         recordViewModel.addRecord()

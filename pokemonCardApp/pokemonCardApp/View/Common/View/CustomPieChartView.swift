@@ -45,7 +45,7 @@ public struct CustomPieChartView: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            VStack {
+            HStack {
                 ZStack {
                     ForEach(0..<self.values.count) { i in
                         CustomPieSlice(pieSliceData: self.slices[i])
@@ -89,6 +89,7 @@ public struct CustomPieChartView: View {
                     }
                     
                 }
+                Spacer()
                 PieChartRows(colors: self.colors, names: self.names, values: self.values, percents: self.values.map { $0 * 100 / self.values.reduce(0, +) })
             }
             .background(self.backgroundColor)

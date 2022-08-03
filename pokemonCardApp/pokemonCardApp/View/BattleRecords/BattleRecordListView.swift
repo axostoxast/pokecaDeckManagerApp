@@ -183,9 +183,10 @@ struct BattleRecordGraphView: View {
                     values: [data.winAndFirst, data.winAndSecond, data.loseAndFirst, data.loseAndSecond],
                     names: ["勝ち(先行)", "勝ち(後行)", "負け(先行)", "負け(後行)"],
                     colors: [Color("orange"), Color("pink"), Color("blue"), Color("purple")],
-                    widthFraction: 0.5,
+                    widthFraction: 0.4,
                     innerRadiusFraction: 0.5
                 )
+                .frame(minHeight: UIScreen.main.bounds.width * 0.5)
             }
             .listRowSeparator(.hidden)
         }
