@@ -33,6 +33,7 @@
 		F60BEEE9288BFC8F0049D01A /* BannerAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */; };
 		F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */; };
 		F64C99E9289A33D200A8DD75 /* DeckListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99E8289A33D200A8DD75 /* DeckListPresenter.swift */; };
+		F64C99EC289A39CA00A8DD75 /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = F64C99EB289A39CA00A8DD75 /* SwiftPieChart */; };
 		F6DDF6BA2879DB8600C995B0 /* MultilingualDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */; };
 		F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BC2879E00600C995B0 /* Logger.swift */; };
 		F6DDF6C0287B1AF500C995B0 /* EditDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BF287B1AF500C995B0 /* EditDeckView.swift */; };
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F64C99EC289A39CA00A8DD75 /* SwiftPieChart in Frameworks */,
 				9F831C7027F00AAF00E58719 /* RealmSwift in Frameworks */,
 				9F831C6E27F00AAF00E58719 /* Realm in Frameworks */,
 				9F831C8627F5ABFD00E58719 /* SwiftUIPHPicker in Frameworks */,
@@ -306,6 +308,7 @@
 				9F831C6D27F00AAF00E58719 /* Realm */,
 				9F831C6F27F00AAF00E58719 /* RealmSwift */,
 				9F831C8527F5ABFD00E58719 /* SwiftUIPHPicker */,
+				F64C99EB289A39CA00A8DD75 /* SwiftPieChart */,
 			);
 			productName = pokemonCardApp;
 			productReference = 9F831C5B27F007B800E58719 /* pokemonCardApp.app */;
@@ -339,6 +342,7 @@
 			packageReferences = (
 				9F831C6C27F00AAF00E58719 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				9F831C8427F5ABFA00E58719 /* XCRemoteSwiftPackageReference "SwiftUIPHPicker" */,
+				F64C99EA289A39CA00A8DD75 /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
 			);
 			productRefGroup = 9F831C5C27F007B800E58719 /* Products */;
 			projectDirPath = "";
@@ -693,6 +697,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F64C99EA289A39CA00A8DD75 /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -710,6 +722,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9F831C8427F5ABFA00E58719 /* XCRemoteSwiftPackageReference "SwiftUIPHPicker" */;
 			productName = SwiftUIPHPicker;
+		};
+		F64C99EB289A39CA00A8DD75 /* SwiftPieChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F64C99EA289A39CA00A8DD75 /* XCRemoteSwiftPackageReference "SwiftPieChart" */;
+			productName = SwiftPieChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
