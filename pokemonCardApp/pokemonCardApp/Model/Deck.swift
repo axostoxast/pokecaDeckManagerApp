@@ -14,17 +14,53 @@ class Deck: Object, Identifiable {
     @Persisted var deckMemo = ""
     @Persisted var deckImageData = Data()
     @Persisted var isFavorite = false
+    
+    init(
+        deckName: String = "",
+        deckCode: String = "",
+        deckMemo: String = "",
+        deckImageData: Data = Data(),
+        isFavorite: Bool = false
+    ) {
+        self.deckName = deckName
+        self.deckCode = deckCode
+        self.deckMemo = deckMemo
+        self.deckImageData = deckImageData
+        self.isFavorite = isFavorite
+    }
+}
+
+class DeckParam {
+    var deckName = ""
+    var deckCode = ""
+    var deckMemo = ""
+    var deckImageData = Data()
+    var isFavorite = false
+    
+    init(
+        deckName: String = "",
+        deckCode: String = "",
+        deckMemo: String = "",
+        deckImageData: Data = Data(),
+        isFavorite: Bool = false
+    ) {
+        self.deckName = deckName
+        self.deckCode = deckCode
+        self.deckMemo = deckMemo
+        self.deckImageData = deckImageData
+        self.isFavorite = isFavorite
+    }
 }
 
 extension Deck {
     // 追加
-    static func addDeck(deckName: String, deckCode: String, deckMemo: String, deckImageData: Data, isFavorite: Bool) {
+    static func addDeck(deckParam: DeckParam) {
         let deck = Deck()
-        deck.deckName = deckName
-        deck.deckCode = deckCode
-        deck.deckMemo = deckMemo
-        deck.deckImageData = deckImageData
-        deck.isFavorite = isFavorite
+        deck.deckName = deckParam.deckName
+        deck.deckCode = deckParam.deckCode
+        deck.deckMemo = deckParam.deckMemo
+        deck.deckImageData = deckParam.deckImageData
+        deck.isFavorite = deckParam.isFavorite
         
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
@@ -33,14 +69,14 @@ extension Deck {
     }
     
     // 更新
-    static func updateDeck(deck: Deck, newDeckName: String, newDeckCode: String, newDeckMemo: String, newDeckImageData: Data, isFavorite: Bool) {
+    static func updateDeck(deck: Deck, deckParam: DeckParam) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
-            deck.deckName = newDeckName
-            deck.deckCode = newDeckCode
-            deck.deckMemo = newDeckMemo
-            deck.deckImageData = newDeckImageData
-            deck.isFavorite = isFavorite
+            deck.deckName = deckParam.deckName
+            deck.deckCode = deckParam.deckCode
+            deck.deckMemo = deckParam.deckMemo
+            deck.deckImageData = deckParam.deckImageData
+            deck.isFavorite = deckParam.isFavorite
         }
     }
     

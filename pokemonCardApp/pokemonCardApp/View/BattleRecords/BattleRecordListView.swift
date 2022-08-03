@@ -37,7 +37,7 @@ struct SelectDeckForRecordView: View {
         }
         .navigationTitle("SelectUsedDeck")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)
@@ -87,7 +87,7 @@ struct BattleRecordListView: View {
         }
         .navigationTitle("RecordList")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)
@@ -101,8 +101,8 @@ struct CellView: View {
     var battleRecord: BattleRecord
     
     var body: some View {
-        VStack{
-            HStack{
+        VStack {
+            HStack {
                 // 相手のデッキ
                 Text("\(MultilingualDefine.opponentDeck): \(battleRecord.opponentDeckName)")
                 
@@ -121,7 +121,7 @@ struct CellView: View {
                         .frame(width: 20, height: 20)
                 }
             }
-            HStack{
+            HStack {
                 // 取ったサイド
                 Text("\(MultilingualDefine.myPrizeCard): \(battleRecord.myScore)")
                 

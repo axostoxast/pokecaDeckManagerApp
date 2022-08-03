@@ -24,7 +24,7 @@ struct DeckDetailView: View {
     var body: some View {
         ZStack {
             // 編集画面遷移
-            NavigationLink(destination: EditDeckView(deck: deck), isActive: $isShowEditView){
+            NavigationLink(destination: EditDeckView(deck: deck), isActive: $isShowEditView) {
                 EmptyView()
             }
             
@@ -111,7 +111,7 @@ struct DeckDetailView: View {
             }
         )
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)

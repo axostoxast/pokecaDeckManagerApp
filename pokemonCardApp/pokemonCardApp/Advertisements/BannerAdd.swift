@@ -51,13 +51,13 @@ class GADBannerViewController: UIViewController, GADBannerViewDelegate {
     }
 
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-        OSLog.ui.log("バナー広告を受信しました")
+        OSLog.normal.log("バナー広告を受信しました")
     }
 
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        OSLog.ui.log("バナー広告の受信に失敗しました → \(error.localizedDescription)")
+        OSLog.normal.log("バナー広告の受信に失敗しました → \(error.localizedDescription)")
     }
     func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-        OSLog.ui.log("バナー広告を表示しました")
+        OSLog.normal.log("バナー広告を表示しました")
     }
 }

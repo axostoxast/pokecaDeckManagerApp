@@ -19,18 +19,49 @@ class BattleRecord: Object, Identifiable {
     @Persisted var date = ""
 }
 
+class BattleRecordParam {
+    var isWon = false
+    var isFirst = false
+    var myDeckName = ""
+    var opponentDeckName = ""
+    var myScore = ""
+    var opponentScore = ""
+    var memo = ""
+    var date = ""
+    
+    init(
+        isWon: Bool = false,
+        isFirst: Bool = false,
+        myDeckName: String = "",
+        opponentDeckName: String = "",
+        myScore: String = "",
+        opponentScore: String = "",
+        memo: String = "",
+        date: String = ""
+    ) {
+        self.isWon = isWon
+        self.isFirst = isFirst
+        self.myDeckName = myDeckName
+        self.opponentDeckName = opponentDeckName
+        self.myScore = myScore
+        self.opponentScore = opponentScore
+        self.memo = memo
+        self.date = date
+    }
+}
+
 extension BattleRecord {
     // 追加
-    static func addRecord(isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String, date: String) {
+    static func addRecord(battleRecordParam: BattleRecordParam) {
         let record = BattleRecord()
-        record.isWon = isWon
-        record.isFirst = isFirst
-        record.myDeckName = myDeckName
-        record.opponentDeckName = opponentDeckName
-        record.myScore = myScore
-        record.opponentScore = opponentScore
-        record.memo = memo
-        record.date = date
+        record.isWon = battleRecordParam.isWon
+        record.isFirst = battleRecordParam.isFirst
+        record.myDeckName = battleRecordParam.myDeckName
+        record.opponentDeckName = battleRecordParam.opponentDeckName
+        record.myScore = battleRecordParam.myScore
+        record.opponentScore = battleRecordParam.opponentScore
+        record.memo = battleRecordParam.memo
+        record.date = battleRecordParam.date
         
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
@@ -39,17 +70,17 @@ extension BattleRecord {
     }
     
     // 更新
-    static func updateRecord(record: BattleRecord, isWon: Bool, isFirst: Bool, myDeckName: String, opponentDeckName: String, myScore: String, opponentScore: String, memo: String, date: String) {
+    static func updateRecord(record: BattleRecord, battleRecordParam: BattleRecordParam) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
-            record.isWon = isWon
-            record.isFirst = isFirst
-            record.myDeckName = myDeckName
-            record.opponentDeckName = opponentDeckName
-            record.myScore = myScore
-            record.opponentScore = opponentScore
-            record.memo = memo
-            record.date = date
+            record.isWon = battleRecordParam.isWon
+            record.isFirst = battleRecordParam.isFirst
+            record.myDeckName = battleRecordParam.myDeckName
+            record.opponentDeckName = battleRecordParam.opponentDeckName
+            record.myScore = battleRecordParam.myScore
+            record.opponentScore = battleRecordParam.opponentScore
+            record.memo = battleRecordParam.memo
+            record.date = battleRecordParam.date
         }
     }
     

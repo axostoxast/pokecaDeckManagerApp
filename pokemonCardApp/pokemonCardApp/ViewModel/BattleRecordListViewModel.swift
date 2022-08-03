@@ -8,7 +8,7 @@
 import Foundation
 
 class BattleRecordListViewModel: ObservableObject {
-    @Published var updatingRecord: BattleRecord? = nil
+    @Published var updatingRecord: BattleRecord?
     @Published var redords: [BattleRecord] = []
     @Published var isWon = false
     @Published var isFirst = false
@@ -28,7 +28,8 @@ class BattleRecordListViewModel: ObservableObject {
     }
     
     func addRecord() {
-        BattleRecord.addRecord(isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo, date: date)
+        let battleRecordParam = BattleRecordParam(isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo, date: date)
+        BattleRecord.addRecord(battleRecordParam: battleRecordParam)
         self.isWon = false
         self.isFirst = false
         self.myDeckName = ""
@@ -41,7 +42,8 @@ class BattleRecordListViewModel: ObservableObject {
     }
     
     func updateRecord() {
-        BattleRecord.updateRecord(record: updatingRecord!, isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo, date: date)
+        let battleRecordParam = BattleRecordParam(isWon: isWon, isFirst: isFirst, myDeckName: myDeckName, opponentDeckName: opponentDeckName, myScore: myScore, opponentScore: opponentScore, memo: memo, date: date)
+        BattleRecord.updateRecord(record: updatingRecord!, battleRecordParam: battleRecordParam)
         // 初期化
         self.isWon = false
         self.isFirst = false

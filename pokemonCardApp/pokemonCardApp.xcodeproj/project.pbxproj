@@ -32,6 +32,7 @@
 		DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480093284DE7E800C68C59 /* BattleRecords.swift */; };
 		F60BEEE9288BFC8F0049D01A /* BannerAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */; };
 		F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */; };
+		F64C99E9289A33D200A8DD75 /* DeckListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99E8289A33D200A8DD75 /* DeckListPresenter.swift */; };
 		F6DDF6BA2879DB8600C995B0 /* MultilingualDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */; };
 		F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BC2879E00600C995B0 /* Logger.swift */; };
 		F6DDF6C0287B1AF500C995B0 /* EditDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DDF6BF287B1AF500C995B0 /* EditDeckView.swift */; };
@@ -65,6 +66,7 @@
 		DA480093284DE7E800C68C59 /* BattleRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecords.swift; sourceTree = "<group>"; };
 		F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdd.swift; sourceTree = "<group>"; };
 		F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeckPresenter.swift; sourceTree = "<group>"; };
+		F64C99E8289A33D200A8DD75 /* DeckListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListPresenter.swift; sourceTree = "<group>"; };
 		F6DDF6B92879DB8600C995B0 /* MultilingualDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilingualDefine.swift; sourceTree = "<group>"; };
 		F6DDF6BC2879E00600C995B0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F6DDF6BF287B1AF500C995B0 /* EditDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				9F26DECF2862177C00F8F3F5 /* BattleRecordPresenter.swift */,
 				F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */,
+				F64C99E8289A33D200A8DD75 /* DeckListPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				9F831C5827F007B800E58719 /* Frameworks */,
 				9F831C5927F007B800E58719 /* Resources */,
 				5F42881FD3E67C6496AD9DE1 /* [CP] Embed Pods Frameworks */,
+				F64C99E72899980100A8DD75 /* Run SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -398,6 +402,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F64C99E72899980100A8DD75 /* Run SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n  \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -422,6 +444,7 @@
 				F6DDF6C0287B1AF500C995B0 /* EditDeckView.swift in Sources */,
 				F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */,
 				DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */,
+				F64C99E9289A33D200A8DD75 /* DeckListPresenter.swift in Sources */,
 				9F831C5F27F007B900E58719 /* pokemonCardApp.swift in Sources */,
 				9F831C7627F00BE300E58719 /* DeckListView.swift in Sources */,
 				9F26DEC9284E559E00F8F3F5 /* RegisterRecordView.swift in Sources */,
@@ -586,7 +609,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -620,7 +643,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eses.pokemonCardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

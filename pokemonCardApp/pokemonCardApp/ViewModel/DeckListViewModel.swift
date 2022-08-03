@@ -9,7 +9,7 @@ import Foundation
 
 class DeckListViewModel: ObservableObject {
     @Published var isShowAddView = false
-    @Published var updatingDeck: Deck? = nil
+    @Published var updatingDeck: Deck?
     @Published var decks: [Deck] = []
     @Published var favoriteDecks: [Deck] = []
     @Published var deckName = ""
@@ -28,7 +28,8 @@ class DeckListViewModel: ObservableObject {
     }
     
     func addDeck() {
-        Deck.addDeck(deckName: deckName, deckCode: deckCode, deckMemo: deckMemo, deckImageData: deckImageData, isFavorite: isFavorite)
+        let deckParam = DeckParam(deckName: deckName, deckCode: deckCode, deckMemo: deckMemo, deckImageData: deckImageData, isFavorite: isFavorite)
+        Deck.addDeck(deckParam: deckParam)
         self.deckName = ""
         self.deckCode = ""
         self.deckMemo = ""
@@ -38,7 +39,8 @@ class DeckListViewModel: ObservableObject {
     }
     
     func updateDeck() {
-        Deck.updateDeck(deck: updatingDeck!, newDeckName: self.deckName, newDeckCode: self.deckCode, newDeckMemo: self.deckMemo, newDeckImageData: self.deckImageData, isFavorite: self.isFavorite)
+        let deckParam = DeckParam(deckName: deckName, deckCode: deckCode, deckMemo: deckMemo, deckImageData: deckImageData, isFavorite: isFavorite)
+        Deck.updateDeck(deck: updatingDeck!, deckParam: deckParam)
         // 初期化
         self.deckName = ""
         self.deckCode = ""

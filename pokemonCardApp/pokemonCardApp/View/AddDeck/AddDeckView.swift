@@ -24,7 +24,7 @@ struct AddDeckView: View {
     @State private var isPopUpSuccess: Bool = false
     
     // フォーカス管理
-    @FocusState private var focusState : FocusField?
+    @FocusState private var focusState: FocusField?
     
     /// 入力項目のサイズ定義
     let textFieldWidth = UIScreen.main.bounds.width * 0.8
@@ -59,8 +59,8 @@ struct AddDeckView: View {
                     )
                     .padding(.vertical)
                     .focused($focusState, equals: .name)
-                    .toolbar{
-                          ToolbarItem(placement: .keyboard){
+                    .toolbar {
+                          ToolbarItem(placement: .keyboard) {
                               Button(action: {
                                   focusState = nil
                               }, label: {
@@ -148,10 +148,10 @@ struct AddDeckView: View {
                             isPopUpSuccess = false
                         }
                     }
-                }) {
+                }, label: {
                     Text("Register")
                         .foregroundColor(Color("basic"))
-                }
+                })
                 .alert("エラー", isPresented: $presenter.isError, actions: {}, message: {
                     Text(presenter.errorMessage)
                 })
@@ -163,7 +163,7 @@ struct AddDeckView: View {
                 
                 Spacer()
             }
-            .toolbar{
+            .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     BannerView()
                         .frame(width: UIScreen.main.bounds.width, height: 50)
@@ -191,7 +191,7 @@ struct AddDeckView: View {
                                 }
                             }
                             if error != nil {
-                                OSLog.ui.log("画像選択に失敗")
+                                OSLog.normal.log("画像選択に失敗")
                             }
                         }
                     }

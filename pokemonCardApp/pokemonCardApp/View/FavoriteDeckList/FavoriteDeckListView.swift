@@ -52,7 +52,7 @@ struct FavoriteDeckListView: View {
         // ヘッダー
         .navigationTitle("Favorite")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)
@@ -62,6 +62,8 @@ struct FavoriteDeckListView: View {
 }
 
 struct FavoriteDeckCellView: View {
+    
+    @ObservedObject var presenter = DeckListPresenter()
     
     @State var deck: Deck
     @State var isFavorite: Bool
@@ -73,7 +75,8 @@ struct FavoriteDeckCellView: View {
                 .foregroundColor(isFavorite ? Color("yellowLine"): Color("basic"))
                 .onTapGesture(perform: {
                     isFavorite.toggle()
-                    Deck.updateDeck(deck: deck, newDeckName: deck.deckName, newDeckCode: deck.deckCode, newDeckMemo: deck.deckMemo, newDeckImageData: deck.deckImageData, isFavorite: !deck.isFavorite)
+                    let deckParam = DeckParam(deckName: deck.deckName, deckCode: deck.deckCode, deckMemo: deck.deckMemo, deckImageData: deck.deckImageData, isFavorite: !deck.isFavorite)
+                    presenter.updateDeck(deck: deck, deckParam: deckParam)
                 })
             
             Text(deckName)

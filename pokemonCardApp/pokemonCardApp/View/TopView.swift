@@ -23,19 +23,19 @@ struct TopView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                NavigationLink(destination:AddDeckView(), isActive: $isShowAddDeck) {
+                NavigationLink(destination: AddDeckView(), isActive: $isShowAddDeck) {
                     EmptyView()
                 }
                 
-                NavigationLink(destination:DeckListView(), isActive: $isShowMyCollection) {
+                NavigationLink(destination: DeckListView(), isActive: $isShowMyCollection) {
                     EmptyView()
                 }
                 
-                NavigationLink(destination:FavoriteDeckListView(), isActive: $isShowMyFavoriteCollection) {
+                NavigationLink(destination: FavoriteDeckListView(), isActive: $isShowMyFavoriteCollection) {
                     EmptyView()
                 }
                 
-                NavigationLink(destination:BattleRecordsMenuView(), isActive: $isShowRecords) {
+                NavigationLink(destination: BattleRecordsMenuView(), isActive: $isShowRecords) {
                     EmptyView()
                 }
             
@@ -53,7 +53,7 @@ struct TopView: View {
                     ButtonView(buttonName: MultilingualDefine.records, isShowFlg: $isShowRecords)
                 }
             }
-            .toolbar{
+            .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     BannerView()
                         .frame(width: UIScreen.main.bounds.width, height: 50)

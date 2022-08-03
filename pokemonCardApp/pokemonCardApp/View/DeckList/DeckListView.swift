@@ -55,7 +55,7 @@ struct DeckListView: View {
         // ヘッダー
         .navigationTitle("DeckList")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)

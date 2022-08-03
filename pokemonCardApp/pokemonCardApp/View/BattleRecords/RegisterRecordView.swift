@@ -25,7 +25,7 @@ struct RegisterRecordView: View {
     @State private var isPopUpPresented: Bool = false
     
     // フォーカス管理
-    @FocusState private var focusState : FocusField?
+    @FocusState private var focusState: FocusField?
     
     var body: some View {
         VStack {
@@ -78,8 +78,8 @@ struct RegisterRecordView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
                             .focused($focusState, equals: .opponentDeck)
-                            .toolbar{
-                                  ToolbarItem(placement: .keyboard){
+                            .toolbar {
+                                  ToolbarItem(placement: .keyboard) {
                                       Button(action: {
                                           focusState = nil
                                       }, label: {
@@ -196,7 +196,7 @@ struct RegisterRecordView: View {
         }
         .navigationTitle("RegisterRecord")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)

@@ -9,5 +9,5 @@ import Foundation
 import os
 
 extension OSLog {
-    static let ui = Logger(subsystem: "com.eses.pokemonCardApp", category: "ui")
+    static let normal = Logger(subsystem: "com.eses.pokemonCardApp", category: "ui")
 }

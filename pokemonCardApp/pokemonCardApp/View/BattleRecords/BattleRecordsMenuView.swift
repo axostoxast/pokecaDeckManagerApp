@@ -23,12 +23,12 @@ struct BattleRecordsMenuView: View {
             
             Spacer()
             
-            ZStack{
-                NavigationLink(destination:RegisterRecordView(), isActive: $isShowRegisterRecord) {
+            ZStack {
+                NavigationLink(destination: RegisterRecordView(), isActive: $isShowRegisterRecord) {
                     EmptyView()
                 }
                 
-                NavigationLink(destination:SelectDeckForRecordView(), isActive: $isShowRecordList) {
+                NavigationLink(destination: SelectDeckForRecordView(), isActive: $isShowRecordList) {
                     EmptyView()
                 }
             
@@ -44,7 +44,7 @@ struct BattleRecordsMenuView: View {
         }
         .navigationTitle("Records")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)
