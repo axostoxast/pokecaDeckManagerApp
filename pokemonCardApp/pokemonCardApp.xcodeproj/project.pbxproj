@@ -32,6 +32,7 @@
 		DA480094284DE7E800C68C59 /* BattleRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA480093284DE7E800C68C59 /* BattleRecords.swift */; };
 		DA5C9C48289A7A690033D478 /* CustomPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C9C47289A7A690033D478 /* CustomPieChartView.swift */; };
 		DA5C9C4A289A7A960033D478 /* CustomPieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C9C49289A7A960033D478 /* CustomPieSliceView.swift */; };
+		DA5C9C4C289B807A0033D478 /* EditRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C9C4B289B807A0033D478 /* EditRecordView.swift */; };
 		F60BEEE9288BFC8F0049D01A /* BannerAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */; };
 		F6164E0A2866100C00CB0CD1 /* AddDeckPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */; };
 		F64C99E9289A33D200A8DD75 /* DeckListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64C99E8289A33D200A8DD75 /* DeckListPresenter.swift */; };
@@ -69,6 +70,7 @@
 		DA480093284DE7E800C68C59 /* BattleRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecords.swift; sourceTree = "<group>"; };
 		DA5C9C47289A7A690033D478 /* CustomPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPieChartView.swift; sourceTree = "<group>"; };
 		DA5C9C49289A7A960033D478 /* CustomPieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPieSliceView.swift; sourceTree = "<group>"; };
+		DA5C9C4B289B807A0033D478 /* EditRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordView.swift; sourceTree = "<group>"; };
 		F60BEEE8288BFC8F0049D01A /* BannerAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdd.swift; sourceTree = "<group>"; };
 		F6164E092866100C00CB0CD1 /* AddDeckPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeckPresenter.swift; sourceTree = "<group>"; };
 		F64C99E8289A33D200A8DD75 /* DeckListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListPresenter.swift; sourceTree = "<group>"; };
@@ -242,8 +244,9 @@
 			isa = PBXGroup;
 			children = (
 				DA480091284DE4F800C68C59 /* BattleRecordsMenuView.swift */,
-				9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */,
 				9F26DECC2853736300F8F3F5 /* BattleRecordListView.swift */,
+				9F26DEC8284E559E00F8F3F5 /* RegisterRecordView.swift */,
+				DA5C9C4B289B807A0033D478 /* EditRecordView.swift */,
 			);
 			path = BattleRecords;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				F60BEEE9288BFC8F0049D01A /* BannerAdd.swift in Sources */,
 				F6DDF6BD2879E00600C995B0 /* Logger.swift in Sources */,
 				DA480092284DE4F800C68C59 /* BattleRecordsMenuView.swift in Sources */,
+				DA5C9C4C289B807A0033D478 /* EditRecordView.swift in Sources */,
 				9F831C7927F00C1A00E58719 /* AddDeckView.swift in Sources */,
 				9F26DEC7284B9D7F00F8F3F5 /* FavoriteDeckListView.swift in Sources */,
 				F6DDF6BA2879DB8600C995B0 /* MultilingualDefine.swift in Sources */,

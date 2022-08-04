@@ -21,7 +21,7 @@ struct SelectDeckForRecordView: View {
             if deckViewModel.decks.count > 0 {
                 List {
                     ForEach(deckViewModel.decks) { deck in
-                        NavigationLink(destination: BattleRecordTabView(deckName: deck.deckName)) {
+                        NavigationLink(destination: BattleRecordTabView(presenter: BattleRecordPresenter(deckName: deck.deckName), deckName: deck.deckName)) {
                             Text(deck.deckName)
                         }
                     }
@@ -49,15 +49,10 @@ struct SelectDeckForRecordView: View {
 
 struct BattleRecordTabView: View {
     
-    @ObservedObject var presenter: BattleRecordPresenter
+    @StateObject var presenter: BattleRecordPresenter
     var deckName: String
     
     @State var selectedTab = 1
-    
-    init(deckName: String) {
-        presenter = BattleRecordPresenter(deckName: deckName)
-        self.deckName = deckName
-    }
     
     var body: some View {
         VStack {
@@ -96,25 +91,33 @@ struct BattleRecordTabView: View {
                     .frame(width: UIScreen.main.bounds.width, height: 50)
             }
         }
+        .onAppear {
+            presenter.reloadData(deckName: deckName)
+        }
     }
 }
 
 struct RecordListView: View {
     
-    @ObservedObject var presenter: BattleRecordPresenter
+    @StateObject var presenter: BattleRecordPresenter
     var deckName: String
     
     var body: some View {
         List {
             Section {
                 ForEach(presenter.recordList) { record in
-                    CellView(battleRecord: record)
+                    NavigationLink(destination: EditRecordView(record: record, presenter: presenter)) {
+                        CellView(battleRecord: record)
+                    }
                 }
             } header: {
                 Text("\(MultilingualDefine.usedDeck): \(deckName)")
             }
         }
         .listStyle(InsetListStyle())
+        .onAppear {
+            presenter.reloadData(deckName: deckName)
+        }
     }
 }
 

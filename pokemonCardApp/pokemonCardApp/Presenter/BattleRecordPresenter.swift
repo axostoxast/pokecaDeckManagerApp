@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class BattleRecordPresenter: ObservableObject {
-    var recordList: [BattleRecord] = []
-    var pieChartDataList: [PieChartData] = []
+    @Published var recordList: [BattleRecord] = []
+    @Published var pieChartDataList: [PieChartData] = []
     @ObservedObject var recordViewModel = BattleRecordListViewModel.shared
     
     init(deckName: String) {
@@ -18,7 +18,13 @@ class BattleRecordPresenter: ObservableObject {
         setPieChartData()
     }
     
+    func reloadData(deckName: String) {
+        recordList = recordViewModel.redords.filter { $0.myDeckName == deckName }
+        setPieChartData()
+    }
+    
     func setPieChartData() {
+        pieChartDataList = []
         for record in self.recordList {
             // 対戦相手が重複している場合は結果をインクリメント
             if let index = self.pieChartDataList.firstIndex(where: { $0.opponentDeck == record.opponentDeckName }) {

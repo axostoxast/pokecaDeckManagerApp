@@ -85,14 +85,14 @@ extension BattleRecord {
     }
     
     // 取得
-    static func fetchAllDeck() -> [BattleRecord]? {
+    static func fetchAllRecord() -> [BattleRecord]? {
         guard let localRealm = try? Realm() else { return nil }
         let records = localRealm.objects(BattleRecord.self)
         return Array(records)
     }
     
     // 削除
-    static func deleteDeck(record: BattleRecord) {
+    static func deleteRecord(record: BattleRecord) {
         guard let localRealm = try? Realm() else { return }
         try? localRealm.write {
             localRealm.delete(record)

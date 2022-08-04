@@ -24,7 +24,7 @@ class BattleRecordListViewModel: ObservableObject {
     }
     
     func fetchRecords() {
-        self.redords = BattleRecord.fetchAllDeck()!
+        self.redords = BattleRecord.fetchAllRecord()!
     }
     
     func addRecord() {
@@ -58,7 +58,7 @@ class BattleRecordListViewModel: ObservableObject {
     }
     
     func deleteRecord(record: BattleRecord) {
-        BattleRecord.deleteDeck(record: record)
+        BattleRecord.deleteRecord(record: record)
         fetchRecords()
     }
     
