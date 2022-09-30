@@ -13,13 +13,13 @@ class BattleRecordPresenter: ObservableObject {
     @Published var pieChartDataList: [PieChartData] = []
     @ObservedObject var recordViewModel = BattleRecordListViewModel.shared
     
-    init(deckName: String) {
-        recordList = recordViewModel.redords.filter { $0.myDeckName == deckName }
+    init(deckName: String, deckCode: String) {
+        recordList = recordViewModel.redords.filter { $0.myDeckName == "\(deckName) (\(deckCode))" }
         setPieChartData()
     }
     
-    func reloadData(deckName: String) {
-        recordList = recordViewModel.redords.filter { $0.myDeckName == deckName }
+    func reloadData(deckName: String, deckCode: String) {
+        recordList = recordViewModel.redords.filter { $0.myDeckName == "\(deckName) (\(deckCode))" }
         setPieChartData()
     }
     

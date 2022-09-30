@@ -21,7 +21,7 @@ struct SelectDeckForRecordView: View {
             if deckViewModel.decks.count > 0 {
                 List {
                     ForEach(deckViewModel.decks) { deck in
-                        NavigationLink(destination: BattleRecordTabView(presenter: BattleRecordPresenter(deckName: deck.deckName), deckName: deck.deckName)) {
+                        NavigationLink(destination: BattleRecordTabView(presenter: BattleRecordPresenter(deckName: deck.deckName, deckCode: deck.deckCode), deckName: deck.deckName, deckCode: deck.deckCode)) {
                             Text(deck.deckName)
                         }
                     }
@@ -51,6 +51,7 @@ struct BattleRecordTabView: View {
     
     @StateObject var presenter: BattleRecordPresenter
     var deckName: String
+    var deckCode: String
     
     @State var selectedTab = 1
     
@@ -66,7 +67,7 @@ struct BattleRecordTabView: View {
                 TabBarView(selectedTab: $selectedTab)
                 
                 TabView(selection: $selectedTab) {
-                    RecordListView(presenter: presenter, deckName: deckName)
+                    RecordListView(presenter: presenter, deckName: deckName, deckCode: deckCode)
                         .tag(1)
                     
                     BattleRecordGraphView(presenter: presenter)
@@ -92,7 +93,7 @@ struct BattleRecordTabView: View {
             }
         }
         .onAppear {
-            presenter.reloadData(deckName: deckName)
+            presenter.reloadData(deckName: deckName, deckCode: deckCode)
         }
     }
 }
@@ -101,6 +102,7 @@ struct RecordListView: View {
     
     @StateObject var presenter: BattleRecordPresenter
     var deckName: String
+    var deckCode: String
     
     var body: some View {
         List {
@@ -116,7 +118,7 @@ struct RecordListView: View {
         }
         .listStyle(InsetListStyle())
         .onAppear {
-            presenter.reloadData(deckName: deckName)
+            presenter.reloadData(deckName: deckName, deckCode: deckCode)
         }
     }
 }

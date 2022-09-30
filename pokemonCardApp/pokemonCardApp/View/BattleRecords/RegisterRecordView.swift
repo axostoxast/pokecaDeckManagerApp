@@ -23,6 +23,8 @@ struct RegisterRecordView: View {
     @State private var resultValue = 1
     @State private var turnValue = 1
     @State private var isPopUpPresented: Bool = false
+    @State private var isPresentSheetView: Bool = false
+    @State var selectedDeck = Deck()
     
     // フォーカス管理
     @FocusState private var focusState: FocusField?
@@ -59,13 +61,19 @@ struct RegisterRecordView: View {
                         Text("UsedDeck")
                             .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
                         
-                        Picker(selection: $recordViewModel.myDeckName, label: Text("UsedDeck")) {
-                            ForEach(myDeckNameList, id: \.self) { value in
-                                Text(value).tag(value)
-                            }
+                        if selectedDeck.deckName.isEmpty {
+                            Button(action: {
+                                isPresentSheetView = true
+                            }, label: {
+                                Text("デッキを選択")
+                                    .foregroundColor(Color("blueLine"))
+                            })
+                            .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
+                        } else {
+                            Text("\(selectedDeck.deckName) (\(selectedDeck.deckCode))")
+                                .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
+                                .foregroundColor(Color("blueLine"))
                         }
-                        .pickerStyle(MenuPickerStyle())
-                        .frame(width: UIScreen.main.bounds.width * 0.4, alignment: .leading)
                     }
                     .padding(.bottom)
                     
@@ -149,12 +157,17 @@ struct RegisterRecordView: View {
                         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMM", options: 0, locale: Locale(identifier: "ja_JP"))
                         recordViewModel.date = dateFormatter.string(from: date)
                         
+                        // デッキ名
+                        recordViewModel.myDeckName = "\(selectedDeck.deckName) (\(selectedDeck.deckCode))"
+                        // 勝敗
                         if resultValue == 1 {
                             recordViewModel.isWon = true
                         }
+                        // 先攻/後攻
                         if turnValue == 1 {
                             recordViewModel.isFirst = true
                         }
+                        // 戦績登録
                         recordViewModel.addRecord()
                         
                         // 登録成功メッセージ表示
@@ -190,16 +203,37 @@ struct RegisterRecordView: View {
         .foregroundColor(Color("basic"))
         .onAppear {
             deckViewModel.decks.forEach({ deck in
-                myDeckNameList.append(deck.deckName)
+                myDeckNameList.append("\(deck.deckName)(\(deck.deckCode)")
             })
-            
         }
         .navigationTitle("RegisterRecord")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $isPresentSheetView) {
+            SelectDeckSheetView(deckList: deckViewModel.decks, selectedDeck: $selectedDeck)
+        }
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 BannerView()
                     .frame(width: UIScreen.main.bounds.width, height: 50)
+            }
+        }
+    }
+}
+
+struct SelectDeckSheetView: View {
+    @Environment(\.dismiss) var dismiss
+    @State var deckList: [Deck]
+    @Binding var selectedDeck: Deck
+    var body: some View {
+        VStack {
+            List {
+                ForEach(deckList) { deck in
+                    Text("\(deck.deckName) (\(deck.deckCode))")
+                        .onTapGesture {
+                            selectedDeck = deck
+                            dismiss()
+                        }
+                }
             }
         }
     }
