@@ -20,7 +20,7 @@ struct EditDeckView: View {
     @State var deck: Deck
     @State private var image: UIImage = UIImage()
     @State private var isShowPHPicker: Bool = false
-    @State private var isPickedImage: Bool = false
+    @State private var isPickedImage: Bool = true
     @State private var isPopUpSuccess: Bool = false
     
     // フォーカス管理
@@ -81,7 +81,7 @@ struct EditDeckView: View {
                     .focused($focusState, equals: .code)
                 
                 // 画像
-                if deck.deckImageData.count < 0 {
+                if !isPickedImage {
                     Button(action: {
                         isShowPHPicker.toggle()
                     }, label: {
@@ -103,7 +103,6 @@ struct EditDeckView: View {
                             self.image = UIImage()
                             isShowPHPicker = false
                             isPickedImage = false
-                            deck.deckImageData = Data()
                         }, label: {
                             Image(systemName: "trash")
                         })
@@ -142,9 +141,13 @@ struct EditDeckView: View {
                     viewModel.updatingDeck = deck
                     viewModel.deckName = deck.deckName
                     viewModel.deckCode = deck.deckCode
-                    viewModel.deckImageData = deck.deckImageData
                     viewModel.deckMemo = deck.deckMemo
                     viewModel.isFavorite = deck.isFavorite
+                    if self.image != UIImage() {
+                        viewModel.deckImageData = self.image.jpegData(compressionQuality: 1) ?? Data()
+                    } else {
+                        viewModel.deckImageData = deck.deckImageData
+                    }
                     viewModel.updateDeck()
                     // 登録成功メッセージ表示
                     withAnimation(.easeIn(duration: 0.2)) {
